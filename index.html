@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Faro Device Wipe Tracker</title>
+    <style>
+      :root {
+        --bg: #f5f5f7;
+        --card: #fff;
+        --ink: #1d1d1f;
+        --mut: #6e6e73;
+        --line: #e5e5ea;
+        --fill: #f5f5f7;
+        --pri: #0071e3;
+        --pri-h: #0077ed;
+        --ok: #248a3d;
+        --okbg: #e8f5ec;
+        --err: #d70015;
+        --errbg: #fdecee;
+        --warn: #8a5a00;
+        --warnbg: #fff6e0;
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.06);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font:
+          18px/1.45 -apple-system,
+          BlinkMacSystemFont,
+          "SF Pro Text",
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        border-bottom: 1px solid var(--line);
+        padding: 14px 32px;
+        display: flex;
+        align-items: center;
+      }
+      header b {
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-right: auto;
+      }
+      #who {
+        font-size: 16px;
+        color: var(--mut);
+      }
+      #who a {
+        color: var(--pri);
+        margin-left: 8px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      main {
+        max-width: 860px;
+        margin: 36px auto;
+        padding: 0 24px;
+      }
+      main.wide {
+        max-width: 1100px;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        padding: 32px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.022em;
+      }
+      h2 {
+        margin: 0 0 16px;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+      }
+      .mut {
+        color: var(--mut);
+      }
+      a {
+        color: var(--pri);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 16px;
+        margin: 22px 0 8px;
+      }
+      input[type="text"],
+      textarea,
+      select,
+      input[type="date"] {
+        width: 100%;
+        font-size: 28px;
+        padding: 14px 18px;
+        border: 1.5px solid transparent;
+        border-radius: 14px;
+        background: var(--fill);
+        color: var(--ink);
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        transition:
+          box-shadow 0.15s,
+          border-color 0.15s,
+          background 0.15s;
+      }
+      select,
+      input[type="date"] {
+        font-family: inherit;
+        font-size: 17px;
+        padding: 11px 14px;
+        width: auto;
+      }
+      textarea {
+        font-size: 19px;
+        font-family: inherit;
+        min-height: 110px;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+        background: #fff;
+        border-color: var(--pri);
+        box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.18);
+      }
+      .msg {
+        margin-top: 10px;
+        padding: 11px 16px;
+        border-radius: 12px;
+        font-size: 16px;
+      }
+      .e {
+        background: var(--errbg);
+        color: var(--err);
+      }
+      .g {
+        background: var(--okbg);
+        color: var(--ok);
+      }
+      .w {
+        background: var(--warnbg);
+        color: var(--warn);
+      }
+      button.btn {
+        font-weight: 600;
+        font-size: 19px;
+        line-height: 1;
+        font-family: inherit;
+        padding: 17px 30px;
+        border: 0;
+        border-radius: 980px;
+        background: var(--pri);
+        color: #fff;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          transform 0.05s;
+      }
+      button.btn:hover:not(:disabled) {
+        background: var(--pri-h);
+      }
+      button.btn:active:not(:disabled) {
+        transform: scale(0.98);
+      }
+      button.btn:disabled {
+        background: #e3e3e8;
+        color: #a1a1a6;
+        cursor: not-allowed;
+      }
+      button.btn.ok {
+        background: var(--ok);
+      }
+      button.btn.ok:disabled {
+        background: #e3e3e8;
+      }
+      button.btn.sec {
+        background: #ececf0;
+        color: var(--ink);
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+      button.btn.sec:hover:not(:disabled) {
+        background: #e3e3e8;
+      }
+      button.btn.dng {
+        background: var(--errbg);
+        color: var(--err);
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+      button.btn.dng:hover:not(:disabled) {
+        background: #fbd9dd;
+      }
+      button.btn.dng:disabled {
+        background: #f0f0f3;
+        color: #b0b0b5;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 28px;
+      }
+      .prog {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 26px;
+      }
+      .prog div {
+        flex: 1;
+        padding: 10px 6px;
+        text-align: center;
+        border-radius: 12px;
+        background: #ececf0;
+        color: var(--mut);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .prog .done {
+        background: var(--okbg);
+        color: var(--ok);
+      }
+      .prog .act {
+        background: var(--pri);
+        color: #fff;
+      }
+      .dev {
+        font:
+          600 15px ui-monospace,
+          "SF Mono",
+          Menlo,
+          monospace;
+        color: var(--pri);
+        background: rgba(0, 113, 227, 0.1);
+        padding: 5px 12px;
+        border-radius: 99px;
+      }
+      .big {
+        font:
+          600 34px ui-monospace,
+          "SF Mono",
+          Menlo,
+          Consolas,
+          monospace;
+        background: var(--fill);
+        padding: 14px 20px;
+        border-radius: 14px;
+        letter-spacing: 1.5px;
+        word-break: break-all;
+      }
+      .chk {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 18px 20px;
+        border: 1.5px solid var(--line);
+        border-radius: 16px;
+        margin-top: 12px;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .chk input {
+        width: 28px;
+        height: 28px;
+        accent-color: var(--ok);
+      }
+      .chk.on {
+        border-color: var(--ok);
+        background: var(--okbg);
+      }
+      .sum {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .sum div {
+        flex: 1;
+        background: var(--card);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 20px 24px;
+        font-size: 15px;
+        color: var(--mut);
+      }
+      .sum b {
+        display: block;
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 14px 10px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: middle;
+      }
+      th {
+        color: var(--mut);
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      td.m {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      }
+      .tag {
+        padding: 4px 12px;
+        border-radius: 99px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .Completed {
+        background: var(--okbg);
+        color: var(--ok);
+      }
+      .Exception {
+        background: var(--errbg);
+        color: var(--err);
+      }
+      .In-Progress {
+        background: var(--warnbg);
+        color: var(--warn);
+      }
+      .icon-btn {
+        background: var(--fill);
+        border: 0;
+        border-radius: 10px;
+        padding: 9px;
+        cursor: pointer;
+        color: var(--ink);
+        line-height: 0;
+        margin-left: 6px;
+        transition: background 0.15s;
+      }
+      .icon-btn:hover {
+        background: #e3e3e8;
+      }
+      .icon-btn.del {
+        color: var(--err);
+      }
+      .icon-btn.del:hover {
+        background: var(--errbg);
+      }
+      .icon-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9;
+        padding: 20px;
+      }
+      .modal .card {
+        width: 560px;
+        max-width: 100%;
+        margin: 0;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
+      .toast {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(29, 29, 31, 0.92);
+        color: #fff;
+        padding: 14px 26px;
+        border-radius: 99px;
+        font-weight: 600;
+        font-size: 16px;
+        z-index: 10;
+      }
+      #report {
+        display: none;
+      }
+      @media print {
+        body > *:not(#report) {
+          display: none !important;
+        }
+        #report {
+          display: block;
+          font-size: 12px;
+          background: #fff;
+          font-family: Arial, Helvetica, sans-serif;
+          text-rendering: geometricPrecision;
+          -webkit-font-smoothing: antialiased;
+        }
+        #report table {
+          font-size: 11px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header><b>Faro Device Wipe Tracker</b><span id="who"></span></header>
+    <main id="app"></main>
+    <div id="report"></div>
+    <script>
+      "use strict";
+
+      /* ============================================================
+   Configuration
+   ============================================================ */
+      const STORAGE_KEY = "iphone-processing-v2";
+      const IMEI_LENGTH = 15;
+      const DEVICE_PREFIX = "DEVICE-";
+      const STATUS = {
+        IN_PROGRESS: "In Progress",
+        COMPLETED: "Completed",
+        EXCEPTION: "Exception",
+      };
+      const STEP_LABELS = ["Identify", "Wipe", "Power off", "Verify"];
+      const VERIFY_CHECKS = [
+        { key: "imei", label: "IMEI matches the device" },
+        { key: "ser", label: "Serial Number matches the device" },
+        { key: "enr", label: "ENROLLED & CHECKED" },
+      ];
+      const SVG_ATTRS =
+        'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+      const ICONS = {
+        edit: `<svg ${SVG_ATTRS}><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>`,
+        trash: `<svg ${SVG_ATTRS}><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>`,
+      };
+
+      /* ============================================================
+   Storage layer
+   To add a backend later, replace load() and save() with API calls.
+   ============================================================ */
+      const storage = {
+        load() {
+          try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY));
+          } catch (error) {
+            return null;
+          }
+        },
+        save(appState) {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+          } catch (error) {
+            alert("Could not save data in this browser!");
+          }
+        },
+      };
+
+      /* ============================================================
+   State
+   Saved data: { operator, nextNum, records }
+   A record:   { id, imei, serial, operator, date, time, status, note, step, chk }
+   (chk holds the verify-step ticks: { imei, ser, enr })
+   ============================================================ */
+      let state = loadState();
+
+      // Screen state that does not need to survive a refresh.
+      const ui = {
+        screen: "home", // 'home' or 'device'
+        changingName: false,
+        date: todayString(),
+        statusFilter: "",
+        pendingName: "",
+        serialTouched: false,
+        duplicateAcknowledged: false,
+        editingId: "",
+        deletingId: "",
+      };
+
+      function loadState() {
+        const saved = storage.load();
+        if (saved && Array.isArray(saved.records)) return saved;
+        return { operator: null, nextNum: 1, records: [] };
+      }
+
+      function persist() {
+        storage.save(state);
+      }
+
+      /* ============================================================
+   Helpers
+   ============================================================ */
+      const $ = (id) => document.getElementById(id);
+      function pad2(number) {
+        return String(number).padStart(2, "0");
+      }
+
+      function todayString() {
+        const now = new Date();
+        return `${now.getFullYear()}-${pad2(now.getMonth() + 1)}-${pad2(now.getDate())}`;
+      }
+
+      function timeString() {
+        const now = new Date();
+        return `${pad2(now.getHours())}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())}`;
+      }
+
+      function escapeHtml(text) {
+        const replacements = {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+        };
+        return String(text ?? "").replace(
+          /[&<>"]/g,
+          (char) => replacements[char],
+        );
+      }
+
+      const statusClass = (status) => status.replace(" ", "-");
+      const countByStatus = (devices, status) =>
+        devices.filter((device) => device.status === status).length;
+
+      function showToast(message) {
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+      }
+
+      function openModal(contentHtml) {
+        closeModal();
+        const modal = document.createElement("div");
+        modal.className = "modal";
+        modal.id = "modal";
+        modal.innerHTML = `<div class="card">${contentHtml}</div>`;
+        document.body.appendChild(modal);
+      }
+
+      function closeModal() {
+        const modal = $("modal");
+        if (modal) modal.remove();
+      }
+
+      /* ============================================================
+   Device data functions
+   ============================================================ */
+      function createDevice() {
+        const device = {
+          id: DEVICE_PREFIX + String(state.nextNum).padStart(3, "0"),
+          imei: "",
+          serial: "",
+          operator: state.operator,
+          date: todayString(),
+          time: "",
+          status: STATUS.IN_PROGRESS,
+          note: "",
+          step: 1,
+          chk: {},
+        };
+        state.nextNum += 1;
+        state.records.push(device);
+        persist();
+        return device;
+      }
+
+      function findOpenDevice() {
+        return state.records.find(
+          (device) =>
+            device.status === STATUS.IN_PROGRESS &&
+            device.operator === state.operator,
+        );
+      }
+
+      function findDevice(deviceId) {
+        return state.records.find((device) => device.id === deviceId);
+      }
+
+      // Drops empty devices (nothing typed) and keeps device numbering gap-free.
+      function removeBlankDevices() {
+        state.records = state.records.filter(
+          (device) =>
+            !(
+              device.status === STATUS.IN_PROGRESS &&
+              !device.imei &&
+              !device.serial
+            ),
+        );
+        const highestNumber = Math.max(
+          0,
+          ...state.records.map(
+            (device) => Number(device.id.slice(DEVICE_PREFIX.length)) || 0,
+          ),
+        );
+        state.nextNum = highestNumber + 1;
+      }
+
+      function devicesForSelectedDay() {
+        return state.records.filter(
+          (device) =>
+            device.date === ui.date && device.operator === state.operator,
+        );
+      }
+
+      // Exports skip blank placeholder devices.
+      function devicesForExport() {
+        return devicesForSelectedDay().filter(
+          (device) =>
+            device.status !== STATUS.IN_PROGRESS ||
+            device.imei ||
+            device.serial,
+        );
+      }
+
+      function findDuplicate(device) {
+        return state.records.find(
+          (other) => other.id !== device.id && other.imei === device.imei,
+        );
+      }
+
+      function isIdentified(device) {
+        return (
+          device.imei.length === IMEI_LENGTH && device.serial.trim() !== ""
+        );
+      }
+
+      function isFullyVerified(device) {
+        return VERIFY_CHECKS.every((check) => device.chk[check.key]);
+      }
+
+      function finishDevice(device, status, note = "") {
+        device.status = status;
+        device.note = note;
+        device.date = todayString();
+        device.time = timeString();
+        persist();
+        closeModal();
+        showToast(
+          status === STATUS.COMPLETED
+            ? `${device.id} completed ✓`
+            : `${device.id} saved as exception`,
+        );
+        ui.screen = "home";
+        render();
+      }
+
+      /* ============================================================
+   Rendering
+   ============================================================ */
+      function render() {
+        $("who").innerHTML = state.operator
+          ? `${escapeHtml(state.operator)} · <a href="#" data-action="changeName">change</a>`
+          : "";
+
+        if (!state.operator || ui.changingName) return renderNameScreen();
+        if (ui.screen === "device") return renderDeviceScreen();
+        renderHomeScreen();
+      }
+
+      function renderNameScreen() {
+        const currentName = state.operator || "";
+        $("app").className = "";
+        $("app").innerHTML = `
+    <div class="card">
+      ${currentName ? '<button class="btn sec" data-action="cancelChangeName">← Back</button>' : ""}
+      <h1 style="margin-top:${currentName ? 16 : 0}px">Who is working?</h1>
+      <p class="mut">Your name is saved on every device you process.</p>
+      <label>Enter your name</label>
+      <input type="text" id="name-input" style="font-family:inherit" value="${escapeHtml(currentName)}"
+             placeholder="e.g. Liam" autocomplete="off">
+      <div class="row">
+        <span></span>
+        <button class="btn" id="start-button" data-action="startSession" ${currentName ? "" : "disabled"}>Start session →</button>
+      </div>
+    </div>`;
+        const input = $("name-input");
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+
+      function renderHomeScreen() {
+        const devices = devicesForSelectedDay();
+        const visibleDevices = devices
+          .filter(
+            (device) => !ui.statusFilter || device.status === ui.statusFilter,
+          )
+          .sort((a, b) => b.id.localeCompare(a.id));
+        const openDevice = findOpenDevice();
+
+        const mainButton = openDevice
+          ? `<button class="btn" data-action="resumeDevice">▶ Resume ${openDevice.id}</button>`
+          : '<button class="btn" data-action="addDevice">＋ Add new device</button>';
+
+        const statusOptions = Object.values(STATUS)
+          .map(
+            (status) =>
+              `<option ${ui.statusFilter === status ? "selected" : ""}>${status}</option>`,
+          )
+          .join("");
+
+        const tableRows =
+          visibleDevices.map(deviceRowHtml).join("") ||
+          '<tr><td colspan="7" class="mut">No devices yet. Press “Add new device” to start.</td></tr>';
+
+        $("app").className = "wide";
+        $("app").innerHTML = `
+    <div class="row" style="margin:0 0 18px">
+      <h1 style="font-size:30px">${escapeHtml(state.operator)}'s devices</h1>
+      ${mainButton}
+    </div>
+    <div class="sum">
+      <div><b>${countByStatus(devices, STATUS.COMPLETED)}</b>Completed</div>
+      <div><b style="color:var(--err)">${countByStatus(devices, STATUS.EXCEPTION)}</b>Exceptions</div>
+      <div><b>${countByStatus(devices, STATUS.IN_PROGRESS)}</b>In Progress</div>
+    </div>
+    <div class="card">
+      <div class="row" style="margin:0 0 16px">
+        <div>
+          <input type="date" data-filter="date" value="${ui.date}">
+          <select data-filter="status"><option value="">All statuses</option>${statusOptions}</select>
+        </div>
+        <div>
+          <button class="btn sec" data-action="exportCsv">Export CSV</button>
+          <button class="btn sec" data-action="exportPdf">Export PDF</button>
+        </div>
+      </div>
+      <table>
+        <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Time</th><th>Status</th><th>Exception note</th><th></th></tr>
+        ${tableRows}
+      </table>
+      <div class="row">
+        <span></span>
+        <button class="btn dng" data-action="clearAllData">Clear all data</button>
+      </div>
+    </div>`;
+      }
+
+      function deviceRowHtml(device) {
+        const firstButton =
+          device.status === STATUS.IN_PROGRESS
+            ? '<button class="btn sec" data-action="resumeDevice">Resume</button>'
+            : `<button class="icon-btn" title="Edit" aria-label="Edit ${device.id}" data-action="openEditModal" data-id="${device.id}">${ICONS.edit}</button>`;
+        const rowButtons = `${firstButton}
+    <button class="icon-btn del" title="Delete" aria-label="Delete ${device.id}" data-action="openDeleteModal" data-id="${device.id}">${ICONS.trash}</button>`;
+        return `
+    <tr>
+      <td>${device.id}</td>
+      <td class="m">${escapeHtml(device.imei) || "—"}</td>
+      <td class="m">${escapeHtml(device.serial) || "—"}</td>
+      <td>${device.time || "—"}</td>
+      <td><span class="tag ${statusClass(device.status)}">${device.status}</span></td>
+      <td>${escapeHtml(device.note)}</td>
+      <td style="white-space:nowrap">${rowButtons}</td>
+    </tr>`;
+      }
+
+      function renderDeviceScreen() {
+        const device = findOpenDevice();
+        if (!device) {
+          ui.screen = "home";
+          return render();
+        }
+
+        const stepRenderers = {
+          1: identifyStepHtml,
+          2: wipeStepHtml,
+          3: powerOffStepHtml,
+          4: verifyStepHtml,
+        };
+        const progressBar = STEP_LABELS.map((label, index) => {
+          const stepNumber = index + 1;
+          const cssClass =
+            stepNumber < device.step
+              ? "done"
+              : stepNumber === device.step
+                ? "act"
+                : "";
+          const checkmark = stepNumber < device.step ? "✓ " : "";
+          return `<div class="${cssClass}">${checkmark}${stepNumber} ${label}</div>`;
+        }).join("");
+
+        $("app").className = "";
+        $("app").innerHTML = `
+    <div class="card">
+      <div class="row" style="margin:0 0 14px">
+        <span class="dev">${device.id}</span>
+        <a href="#" data-action="backToList">← Back to my devices</a>
+      </div>
+      <div class="prog">${progressBar}</div>
+      ${stepRenderers[device.step](device)}
+    </div>
+    <div style="text-align:right">
+      <button class="btn dng" data-action="openExceptionModal">⚠ Mark as Exception</button>
+    </div>`;
+
+        if (device.step === 1) updateIdentifyForm();
+      }
+
+      function identifyStepHtml(device) {
+        return `
+    <h2>Enter the device identifiers</h2>
+    <label>IMEI (15 digits)</label>
+    <input type="text" id="imei-input" inputmode="numeric" maxlength="${IMEI_LENGTH}"
+           value="${escapeHtml(device.imei)}" autocomplete="off">
+    <div id="imei-message"></div>
+    <label>Serial Number</label>
+    <input type="text" id="serial-input" value="${escapeHtml(device.serial)}" autocomplete="off">
+    <div id="serial-message"></div>
+    <div id="duplicate-warning"></div>
+    <div class="row"><span></span><button class="btn" id="continue-button" data-action="confirmIdentifiers">Confirm identifiers →</button></div>`;
+      }
+
+      function wipeStepHtml(device) {
+        return `
+    <h2>Wipe the device in Apple Configurator</h2>
+    <p class="mut">Do this outside this app. When the wipe has finished successfully, continue.</p>
+    <div class="big">${escapeHtml(device.imei)}</div>
+    <div class="row">
+      <button class="btn sec" data-action="goToStep" data-step="1">← Edit identifiers</button>
+      <button class="btn" data-action="goToStep" data-step="3">Wipe finished →</button>
+    </div>`;
+      }
+
+      function powerOffStepHtml() {
+        return `
+    <h2>Turn the device OFF</h2>
+    <p class="mut">Hold the side button and power the iPhone completely off.</p>
+    <div class="row">
+      <button class="btn sec" data-action="goToStep" data-step="2">← Back</button>
+      <button class="btn" data-action="goToStep" data-step="4">Device is off →</button>
+    </div>`;
+      }
+
+      function verifyStepHtml(device) {
+        const checkboxes = VERIFY_CHECKS.map(
+          ({ key, label }) => `
+    <label class="chk ${device.chk[key] ? "on" : ""}">
+      <input type="checkbox" data-action="toggleCheck" data-check="${key}" ${device.chk[key] ? "checked" : ""}> ${label}
+    </label>`,
+        ).join("");
+        return `
+    <h2>Check the physical device</h2>
+    <p class="mut">Compare what is printed on the iPhone with what you entered.</p>
+    <label>IMEI entered</label><div class="big">${escapeHtml(device.imei)}</div>
+    <label>Serial entered</label><div class="big">${escapeHtml(device.serial)}</div>
+    ${checkboxes}
+    <div class="row">
+      <button class="btn sec" data-action="goToStep" data-step="3">← Back</button>
+      <button class="btn ok" data-action="completeDevice" ${isFullyVerified(device) ? "" : "disabled"}>Complete Device ✓</button>
+    </div>`;
+      }
+
+      // Updates the identify step's messages and button without re-rendering,
+      // so the operator's cursor stays in the field while typing.
+      function updateIdentifyForm() {
+        const device = findOpenDevice();
+        const imeiInput = $("imei-input");
+        const serialInput = $("serial-input");
+
+        imeiInput.value = imeiInput.value.replace(/\D/g, "");
+        device.imei = imeiInput.value;
+        device.serial = serialInput.value;
+
+        const imeiValid = device.imei.length === IMEI_LENGTH;
+        const serialValid = device.serial.trim() !== "";
+        const duplicate = imeiValid ? findDuplicate(device) : null;
+
+        if (device.imei.length === 0) {
+          $("imei-message").innerHTML = "";
+        } else if (imeiValid) {
+          $("imei-message").innerHTML =
+            '<div class="msg g">✓ IMEI looks good</div>';
+        } else {
+          $("imei-message").innerHTML =
+            `<div class="msg e">IMEI must be exactly ${IMEI_LENGTH} digits — you have entered ${device.imei.length}.</div>`;
+        }
+
+        $("serial-message").innerHTML =
+          !serialValid && ui.serialTouched
+            ? '<div class="msg e">Serial Number is required.</div>'
+            : "";
+
+        $("duplicate-warning").innerHTML = duplicate
+          ? `
+    <div class="msg w"><b>⚠ Duplicate IMEI!</b> Already recorded as ${duplicate.id} (${duplicate.status}).
+      <label class="chk" style="font-size:16px;margin-top:8px">
+        <input type="checkbox" id="duplicate-ok" style="width:22px;height:22px" ${ui.duplicateAcknowledged ? "checked" : ""}>
+        This is intentional (re-processing)
+      </label>
+    </div>`
+          : "";
+
+        $("continue-button").disabled = !(
+          imeiValid &&
+          serialValid &&
+          (!duplicate || ui.duplicateAcknowledged)
+        );
+        persist();
+      }
+
+      function showDevice() {
+        ui.screen = "device";
+        ui.serialTouched = false;
+        ui.duplicateAcknowledged = false;
+        render();
+      }
+
+      /* ============================================================
+   Actions (triggered by data-action attributes in the HTML)
+   ============================================================ */
+      const actions = {
+        addDevice() {
+          createDevice();
+          showDevice();
+        },
+        resumeDevice: showDevice,
+        backToList() {
+          ui.screen = "home";
+          removeBlankDevices();
+          persist();
+          render();
+        },
+        confirmIdentifiers() {
+          const device = findOpenDevice();
+          device.serial = device.serial.trim();
+          device.step = 2;
+          persist();
+          render();
+        },
+        goToStep(button) {
+          const device = findOpenDevice();
+          device.step = Number(button.dataset.step);
+          if (device.step < 4) device.chk = {};
+          persist();
+          showDevice();
+        },
+        toggleCheck(checkbox) {
+          const device = findOpenDevice();
+          device.chk[checkbox.dataset.check] = checkbox.checked;
+          persist();
+          renderDeviceScreen();
+        },
+        completeDevice() {
+          const device = findOpenDevice();
+          if (!isIdentified(device) || !isFullyVerified(device)) return;
+          finishDevice(device, STATUS.COMPLETED);
+        },
+        openExceptionModal() {
+          const device = findOpenDevice();
+          openModal(`
+      <h2>Mark ${device.id} as Exception</h2>
+      <p class="mut">Describe the problem briefly (e.g. "stuck on setup screen"). This device will NOT count as completed.</p>
+      <textarea id="exception-note" placeholder="What went wrong?"></textarea>
+      <div class="row">
+        <button class="btn sec" data-action="closeModal">Cancel</button>
+        <button class="btn dng" id="save-exception" data-action="saveException" disabled>Save exception &amp; return to list</button>
+      </div>`);
+          $("exception-note").focus();
+        },
+        saveException() {
+          const note = $("exception-note").value.trim();
+          if (note) finishDevice(findOpenDevice(), STATUS.EXCEPTION, note);
+        },
+        closeModal,
+
+        /* ----- Edit and delete ----- */
+        openEditModal(button) {
+          openEditModal(button.dataset.id);
+        },
+        saveEdit() {
+          if ($("save-edit").disabled) return;
+          const device = findDevice(ui.editingId);
+          device.imei = $("edit-imei").value;
+          device.serial = $("edit-serial").value.trim();
+          if (device.status === STATUS.EXCEPTION)
+            device.note = $("edit-note").value.trim();
+          persist();
+          closeModal();
+          showToast(`${device.id} updated`);
+          render();
+        },
+        openDeleteModal(button) {
+          openDeleteModal(button.dataset.id);
+        },
+        openDeleteFinalModal() {
+          openDeleteFinalModal();
+        },
+        deleteDevice() {
+          const device = findDevice(ui.deletingId);
+          state.records = state.records.filter(
+            (record) => record.id !== ui.deletingId,
+          );
+          persist();
+          closeModal();
+          showToast(`${device.id} deleted`);
+          render();
+        },
+
+        /* ----- Operator name ----- */
+        changeName() {
+          ui.changingName = true;
+          render();
+        },
+        cancelChangeName() {
+          ui.changingName = false;
+          render();
+        },
+        startSession() {
+          const name = $("name-input").value.trim();
+          if (!name) return;
+          const isDifferentName = state.operator && name !== state.operator;
+          const hasOldData = state.records.some(
+            (device) => device.operator === state.operator,
+          );
+          if (isDifferentName && hasOldData) return openNameChangeModal(name);
+          switchOperator(name);
+        },
+        confirmNameChange() {
+          const oldName = state.operator;
+          state.records = state.records.filter(
+            (device) => device.operator !== oldName,
+          );
+          removeBlankDevices();
+          closeModal();
+          switchOperator(ui.pendingName);
+        },
+
+        /* ----- Exports and maintenance ----- */
+        exportCsv,
+        exportPdf,
+        clearAllData() {
+          if (
+            prompt(
+              "This deletes ALL saved devices in this browser. Type DELETE to confirm.",
+            ) !== "DELETE"
+          )
+            return;
+          state = { operator: state.operator, nextNum: 1, records: [] };
+          persist();
+          render();
+        },
+      };
+
+      function openEditModal(deviceId) {
+        ui.editingId = deviceId;
+        const device = findDevice(deviceId);
+        const noteField =
+          device.status === STATUS.EXCEPTION
+            ? `<label>Exception note</label><textarea id="edit-note">${escapeHtml(device.note)}</textarea>`
+            : "";
+        openModal(`
+    <h2>Edit ${device.id}</h2>
+    <label>IMEI (15 digits)</label>
+    <input type="text" id="edit-imei" inputmode="numeric" maxlength="${IMEI_LENGTH}" value="${escapeHtml(device.imei)}" autocomplete="off">
+    <div id="edit-imei-message"></div>
+    <label>Serial Number</label>
+    <input type="text" id="edit-serial" value="${escapeHtml(device.serial)}" autocomplete="off">
+    ${noteField}
+    <div class="row">
+      <button class="btn sec" data-action="closeModal">Cancel</button>
+      <button class="btn" id="save-edit" data-action="saveEdit">Save changes</button>
+    </div>`);
+        updateEditForm();
+      }
+
+      function updateEditForm() {
+        const device = findDevice(ui.editingId);
+        const imeiInput = $("edit-imei");
+        imeiInput.value = imeiInput.value.replace(/\D/g, "");
+        const imei = imeiInput.value;
+
+        const imeiValid = imei.length === IMEI_LENGTH;
+        const serialValid = $("edit-serial").value.trim() !== "";
+        const noteValid =
+          device.status !== STATUS.EXCEPTION ||
+          $("edit-note").value.trim() !== "";
+        const duplicate = imeiValid
+          ? state.records.find(
+              (other) => other.id !== device.id && other.imei === imei,
+            )
+          : null;
+
+        if (imei && !imeiValid) {
+          $("edit-imei-message").innerHTML =
+            `<div class="msg e">IMEI must be exactly ${IMEI_LENGTH} digits — you have entered ${imei.length}.</div>`;
+        } else if (duplicate) {
+          $("edit-imei-message").innerHTML =
+            `<div class="msg w">⚠ This IMEI is already recorded as ${duplicate.id}.</div>`;
+        } else {
+          $("edit-imei-message").innerHTML = "";
+        }
+        $("save-edit").disabled = !(imeiValid && serialValid && noteValid);
+      }
+
+      // Deleting takes two confirmations: this first one, then a final "are you sure".
+      function openDeleteModal(deviceId) {
+        ui.deletingId = deviceId;
+        const device = findDevice(deviceId);
+        openModal(`
+    <h2>Delete ${device.id}?</h2>
+    <p>IMEI: <b>${escapeHtml(device.imei) || "—"}</b><br>Serial: <b>${escapeHtml(device.serial) || "—"}</b><br>Status: <b>${device.status}</b></p>
+    <div class="row">
+      <button class="btn sec" data-action="closeModal">Cancel</button>
+      <button class="btn dng" data-action="openDeleteFinalModal">Delete…</button>
+    </div>`);
+      }
+
+      function openDeleteFinalModal() {
+        const device = findDevice(ui.deletingId);
+        openModal(`
+    <h2>Are you sure?</h2>
+    <p><b>${device.id}</b> will be permanently deleted. This cannot be undone.</p>
+    <div class="row">
+      <button class="btn sec" data-action="closeModal">No, keep it</button>
+      <button class="btn dng" data-action="deleteDevice">Yes, delete permanently</button>
+    </div>`);
+      }
+
+      function switchOperator(name) {
+        if (name !== state.operator) ui.screen = "home";
+        state.operator = name;
+        ui.changingName = false;
+        persist();
+        render();
+      }
+
+      function openNameChangeModal(newName) {
+        ui.pendingName = newName;
+        const count = state.records.filter(
+          (device) => device.operator === state.operator,
+        ).length;
+        openModal(`
+    <h2>Change name to “${escapeHtml(newName)}”?</h2>
+    <p>This will <b>permanently delete all ${count} device record${count === 1 ? "" : "s"}</b>
+       saved under “${escapeHtml(state.operator)}” on this computer.</p>
+    <p class="mut">Export your CSV/PDF first if you still need them.</p>
+    <label class="chk" style="font-size:18px">
+      <input type="checkbox" id="confirm-delete"> I understand this data will be deleted
+    </label>
+    <div class="row">
+      <button class="btn sec" data-action="closeModal">Cancel</button>
+      <button class="btn dng" id="confirm-switch" data-action="confirmNameChange" disabled>Delete data &amp; switch</button>
+    </div>`);
+      }
+
+      /* ============================================================
+   Exports
+   ============================================================ */
+      function csvCell(value) {
+        return `"${String(value ?? "").replace(/"/g, '""')}"`;
+      }
+
+      // Written as ="123" so Excel keeps long numbers as text instead of 3.5E+14.
+      function csvTextCell(value) {
+        return value ? csvCell(`="${value}"`) : csvCell("");
+      }
+
+      function exportCsv() {
+        const header = [
+          "Device ID",
+          "IMEI",
+          "Serial Number",
+          "Operator",
+          "Date",
+          "Time Completed",
+          "Status",
+          "Exception Note",
+        ];
+        const rows = devicesForExport().map((device) => [
+          csvCell(device.id),
+          csvTextCell(device.imei),
+          csvTextCell(device.serial),
+          csvCell(device.operator),
+          csvCell(device.date),
+          csvCell(device.time),
+          csvCell(device.status),
+          csvCell(device.note),
+        ]);
+        const lines = [header.map(csvCell), ...rows].map((cells) =>
+          cells.join(","),
+        );
+
+        const blob = new Blob(["\ufeff" + lines.join("\r\n")], {
+          type: "text/csv",
+        });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `devices-${state.operator.replace(/\W+/g, "-")}-${ui.date}.csv`;
+        link.click();
+      }
+
+      // Fills the hidden print-only report, then opens the print dialog ("Save as PDF").
+      function exportPdf() {
+        const devices = devicesForExport();
+        const rows = devices
+          .map(
+            (device) => `
+    <tr><td>${device.id}</td><td>${escapeHtml(device.imei)}</td><td>${escapeHtml(device.serial)}</td>
+        <td>${escapeHtml(device.operator)}</td><td>${device.time}</td><td>${device.status}</td><td>${escapeHtml(device.note)}</td></tr>`,
+          )
+          .join("");
+
+        $("report").innerHTML = `
+    <h1 style="font-size:24px">Faro Device Wipe Tracker — Daily Report</h1>
+    <p>Date: <b>${ui.date}</b><br>Operator: <b>${escapeHtml(state.operator)}</b><br>
+       Total completed: <b>${countByStatus(devices, STATUS.COMPLETED)}</b> ·
+       Total exceptions: <b>${countByStatus(devices, STATUS.EXCEPTION)}</b> ·
+       In progress: ${countByStatus(devices, STATUS.IN_PROGRESS)}</p>
+    <table>
+      <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Operator</th><th>Time</th><th>Status</th><th>Exception note</th></tr>
+      ${rows}
+    </table>`;
+        window.print();
+      }
+
+      /* ============================================================
+   Event wiring
+   ============================================================ */
+      document.addEventListener("click", (event) => {
+        const target = event.target.closest("[data-action]");
+        if (!target) return;
+        if (target.tagName === "A") event.preventDefault();
+        const action = actions[target.dataset.action];
+        if (action) action(target);
+      });
+
+      document.addEventListener("input", (event) => {
+        const { id, value } = event.target;
+        if (id === "imei-input") {
+          ui.duplicateAcknowledged = false;
+          updateIdentifyForm();
+        } else if (id === "serial-input") {
+          ui.serialTouched = true;
+          updateIdentifyForm();
+        } else if (id === "name-input") {
+          $("start-button").disabled = !value.trim();
+        } else if (id === "exception-note") {
+          $("save-exception").disabled = !value.trim();
+        } else if (
+          id === "edit-imei" ||
+          id === "edit-serial" ||
+          id === "edit-note"
+        ) {
+          updateEditForm();
+        }
+      });
+
+      document.addEventListener("change", (event) => {
+        const { id, checked, dataset, value } = event.target;
+        if (id === "duplicate-ok") {
+          ui.duplicateAcknowledged = checked;
+          updateIdentifyForm();
+        } else if (id === "confirm-delete") {
+          $("confirm-switch").disabled = !checked;
+        } else if (dataset.filter === "date") {
+          ui.date = value;
+          render();
+        } else if (dataset.filter === "status") {
+          ui.statusFilter = value;
+          render();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        const { id } = event.target;
+        if (id === "name-input") actions.startSession();
+        if (id === "imei-input") $("serial-input").focus();
+        if (id === "serial-input" && !$("continue-button").disabled)
+          actions.confirmIdentifiers();
+      });
+
+      /* ============================================================
+   Start
+   ============================================================ */
+      removeBlankDevices();
+      render();
+    </script>
+  </body>
+</html>

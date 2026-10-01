@@ -22,20 +22,10 @@
         --warnbg: #fff6e0;
         --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.06);
       }
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
       body {
         margin: 0;
-        font:
-          18px/1.45 -apple-system,
-          BlinkMacSystemFont,
-          "SF Pro Text",
-          "Segoe UI",
-          Roboto,
-          Helvetica,
-          Arial,
-          sans-serif;
+        font: 18px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         background: var(--bg);
         color: var(--ink);
         -webkit-font-smoothing: antialiased;
@@ -52,68 +42,18 @@
         display: flex;
         align-items: center;
       }
-      header b {
-        font-size: 19px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        margin-right: auto;
-      }
-      #who {
-        font-size: 16px;
-        color: var(--mut);
-      }
-      #who a {
-        color: var(--pri);
-        margin-left: 8px;
-        text-decoration: none;
-        font-weight: 500;
-      }
-      main {
-        max-width: 860px;
-        margin: 36px auto;
-        padding: 0 24px;
-      }
-      main.wide {
-        max-width: 1100px;
-      }
-      .card {
-        background: var(--card);
-        border-radius: 22px;
-        box-shadow: var(--shadow);
-        padding: 32px;
-        margin-bottom: 20px;
-      }
-      h1 {
-        margin: 0 0 6px;
-        font-size: 34px;
-        font-weight: 700;
-        letter-spacing: -0.022em;
-      }
-      h2 {
-        margin: 0 0 16px;
-        font-size: 26px;
-        font-weight: 600;
-        letter-spacing: -0.015em;
-      }
-      .mut {
-        color: var(--mut);
-      }
-      a {
-        color: var(--pri);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 16px;
-      }
-      label {
-        display: block;
-        font-weight: 600;
-        font-size: 16px;
-        margin: 22px 0 8px;
-      }
-      input[type="text"],
-      textarea,
-      select,
-      input[type="date"] {
+      header b { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-right: auto; }
+      #who { font-size: 16px; color: var(--mut); }
+      #who a { color: var(--pri); margin-left: 8px; text-decoration: none; font-weight: 500; }
+      main { max-width: 860px; margin: 36px auto; padding: 0 24px; }
+      main.wide { max-width: 1250px; }
+      .card { background: var(--card); border-radius: 22px; box-shadow: var(--shadow); padding: 32px; margin-bottom: 20px; }
+      h1 { margin: 0 0 6px; font-size: 34px; font-weight: 700; letter-spacing: -0.022em; }
+      h2 { margin: 0 0 16px; font-size: 26px; font-weight: 600; letter-spacing: -0.015em; }
+      .mut { color: var(--mut); }
+      a { color: var(--pri); text-decoration: none; font-weight: 500; font-size: 16px; }
+      label { display: block; font-weight: 600; font-size: 16px; margin: 22px 0 8px; }
+      input[type="text"], textarea, select, input[type="date"] {
         width: 100%;
         font-size: 28px;
         padding: 14px 18px;
@@ -122,55 +62,22 @@
         background-color: var(--fill);
         color: var(--ink);
         font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-        transition:
-          box-shadow 0.15s,
-          border-color 0.15s,
-          background 0.15s;
+        transition: box-shadow 0.15s, border-color 0.15s, background 0.15s;
       }
-      input[type="text"],
-      textarea {
-        -webkit-appearance: none;
-        appearance: none;
-        box-shadow: none;
-      }
-      select,
-      input[type="date"] {
-        font-family: inherit;
-        font-size: 17px;
-        padding: 11px 14px;
-        width: auto;
-      }
-      textarea {
-        font-size: 19px;
-        font-family: inherit;
-        min-height: 110px;
-      }
-      input:focus,
-      textarea:focus,
-      select:focus {
+      input[type="text"], textarea { -webkit-appearance: none; appearance: none; box-shadow: none; }
+      select, input[type="date"] { font-family: inherit; font-size: 17px; padding: 11px 14px; width: auto; }
+      textarea { font-size: 19px; font-family: inherit; min-height: 110px; }
+      input.txt { font-family: inherit; font-size: 22px; }
+      input:focus, textarea:focus, select:focus {
         outline: none;
         background: #fff;
         border-color: var(--pri);
         box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.18);
       }
-      .msg {
-        margin-top: 10px;
-        padding: 11px 16px;
-        border-radius: 12px;
-        font-size: 16px;
-      }
-      .e {
-        background: var(--errbg);
-        color: var(--err);
-      }
-      .g {
-        background: var(--okbg);
-        color: var(--ok);
-      }
-      .w {
-        background: var(--warnbg);
-        color: var(--warn);
-      }
+      .msg { margin-top: 10px; padding: 11px 16px; border-radius: 12px; font-size: 16px; }
+      .e { background: var(--errbg); color: var(--err); }
+      .g { background: var(--okbg); color: var(--ok); }
+      .w { background: var(--warnbg); color: var(--warn); }
       button.btn {
         font-weight: 600;
         font-size: 19px;
@@ -182,98 +89,32 @@
         background: var(--pri);
         color: #fff;
         cursor: pointer;
-        transition:
-          background 0.15s,
-          transform 0.05s;
+        transition: background 0.15s, transform 0.05s;
       }
-      button.btn:hover:not(:disabled) {
-        background: var(--pri-h);
-      }
-      button.btn:active:not(:disabled) {
-        transform: scale(0.98);
-      }
-      button.btn:disabled {
-        background: #e3e3e8;
-        color: #a1a1a6;
-        cursor: not-allowed;
-      }
-      button.btn.ok {
-        background: var(--ok);
-      }
-      button.btn.ok:disabled {
-        background: #e3e3e8;
-      }
-      button.btn.sec {
-        background: #ececf0;
-        color: var(--ink);
-        font-size: 16px;
-        padding: 12px 20px;
-      }
-      button.btn.sec:hover:not(:disabled) {
-        background: #e3e3e8;
-      }
-      button.btn.dng {
-        background: var(--errbg);
-        color: var(--err);
-        font-size: 16px;
-        padding: 12px 20px;
-      }
-      button.btn.dng:hover:not(:disabled) {
-        background: #fbd9dd;
-      }
-      button.btn.dng:disabled {
-        background: #f0f0f3;
-        color: #b0b0b5;
-      }
-      .row {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-top: 28px;
-      }
-      .prog {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 26px;
-      }
-      .prog div {
-        flex: 1;
-        padding: 10px 6px;
-        text-align: center;
-        border-radius: 12px;
-        background: #ececf0;
-        color: var(--mut);
-        font-size: 14px;
-        font-weight: 600;
-      }
-      .prog .done {
-        background: var(--okbg);
-        color: var(--ok);
-      }
-      .prog .act {
-        background: var(--pri);
-        color: #fff;
-      }
+      button.btn:hover:not(:disabled) { background: var(--pri-h); }
+      button.btn:active:not(:disabled) { transform: scale(0.98); }
+      button.btn:disabled { background: #e3e3e8; color: #a1a1a6; cursor: not-allowed; }
+      button.btn.ok { background: var(--ok); }
+      button.btn.ok:disabled { background: #e3e3e8; }
+      button.btn.sec { background: #ececf0; color: var(--ink); font-size: 16px; padding: 12px 20px; }
+      button.btn.sec:hover:not(:disabled) { background: #e3e3e8; }
+      button.btn.dng { background: var(--errbg); color: var(--err); font-size: 16px; padding: 12px 20px; }
+      button.btn.dng:hover:not(:disabled) { background: #fbd9dd; }
+      button.btn.dng:disabled { background: #f0f0f3; color: #b0b0b5; }
+      .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: space-between; margin-top: 28px; }
+      .prog { display: flex; gap: 8px; margin-bottom: 26px; }
+      .prog div { flex: 1; padding: 10px 6px; text-align: center; border-radius: 12px; background: #ececf0; color: var(--mut); font-size: 14px; font-weight: 600; }
+      .prog .done { background: var(--okbg); color: var(--ok); }
+      .prog .act { background: var(--pri); color: #fff; }
       .dev {
-        font:
-          600 15px ui-monospace,
-          "SF Mono",
-          Menlo,
-          monospace;
+        font: 600 15px ui-monospace, "SF Mono", Menlo, monospace;
         color: var(--pri);
         background: rgba(0, 113, 227, 0.1);
         padding: 5px 12px;
         border-radius: 99px;
       }
       .big {
-        font:
-          600 34px ui-monospace,
-          "SF Mono",
-          Menlo,
-          Consolas,
-          monospace;
+        font: 600 34px ui-monospace, "SF Mono", Menlo, Consolas, monospace;
         background: var(--fill);
         padding: 14px 20px;
         border-radius: 14px;
@@ -291,108 +132,27 @@
         font-size: 20px;
         font-weight: 600;
         cursor: pointer;
-        transition:
-          background 0.15s,
-          border-color 0.15s;
+        transition: background 0.15s, border-color 0.15s;
       }
-      .chk input {
-        width: 28px;
-        height: 28px;
-        accent-color: var(--ok);
-      }
-      .chk.on {
-        border-color: var(--ok);
-        background: var(--okbg);
-      }
-      .sum {
-        display: flex;
-        gap: 16px;
-        margin-bottom: 20px;
-      }
-      .sum div {
-        flex: 1;
-        background: var(--card);
-        border-radius: 20px;
-        box-shadow: var(--shadow);
-        padding: 20px 24px;
-        font-size: 15px;
-        color: var(--mut);
-      }
-      .sum b {
-        display: block;
-        font-size: 42px;
-        font-weight: 600;
-        letter-spacing: -0.02em;
-        color: var(--ink);
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 16px;
-      }
-      th,
-      td {
-        text-align: left;
-        padding: 14px 10px;
-        border-bottom: 1px solid var(--line);
-        vertical-align: middle;
-      }
-      th {
-        color: var(--mut);
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-      }
-      tr:last-child td {
-        border-bottom: 0;
-      }
-      td.m {
-        font-family: ui-monospace, "SF Mono", Menlo, monospace;
-      }
-      .tag {
-        padding: 4px 12px;
-        border-radius: 99px;
-        font-size: 14px;
-        font-weight: 600;
-        white-space: nowrap;
-      }
-      .Completed {
-        background: var(--okbg);
-        color: var(--ok);
-      }
-      .Exception {
-        background: var(--errbg);
-        color: var(--err);
-      }
-      .In-Progress {
-        background: var(--warnbg);
-        color: var(--warn);
-      }
-      .icon-btn {
-        background: var(--fill);
-        border: 0;
-        border-radius: 10px;
-        padding: 9px;
-        cursor: pointer;
-        color: var(--ink);
-        line-height: 0;
-        margin-left: 6px;
-        transition: background 0.15s;
-      }
-      .icon-btn:hover {
-        background: #e3e3e8;
-      }
-      .icon-btn.del {
-        color: var(--err);
-      }
-      .icon-btn.del:hover {
-        background: var(--errbg);
-      }
-      .icon-btn svg {
-        width: 20px;
-        height: 20px;
-      }
+      .chk input { width: 28px; height: 28px; accent-color: var(--ok); }
+      .chk.on { border-color: var(--ok); background: var(--okbg); }
+      .sum { display: flex; gap: 16px; margin-bottom: 20px; }
+      .sum div { flex: 1; background: var(--card); border-radius: 20px; box-shadow: var(--shadow); padding: 20px 24px; font-size: 15px; color: var(--mut); }
+      .sum b { display: block; font-size: 42px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+      table { width: 100%; border-collapse: collapse; font-size: 16px; }
+      th, td { text-align: left; padding: 14px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+      th { color: var(--mut); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+      tr:last-child td { border-bottom: 0; }
+      td.m { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+      .tag { padding: 4px 12px; border-radius: 99px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+      .Completed { background: var(--okbg); color: var(--ok); }
+      .Exception { background: var(--errbg); color: var(--err); }
+      .In-Progress { background: var(--warnbg); color: var(--warn); }
+      .icon-btn { background: var(--fill); border: 0; border-radius: 10px; padding: 9px; cursor: pointer; color: var(--ink); line-height: 0; margin-left: 6px; transition: background 0.15s; }
+      .icon-btn:hover { background: #e3e3e8; }
+      .icon-btn.del { color: var(--err); }
+      .icon-btn.del:hover { background: var(--errbg); }
+      .icon-btn svg { width: 20px; height: 20px; }
       .modal {
         position: fixed;
         inset: 0;
@@ -404,13 +164,9 @@
         justify-content: center;
         z-index: 9;
         padding: 20px;
+        overflow-y: auto;
       }
-      .modal .card {
-        width: 560px;
-        max-width: 100%;
-        margin: 0;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-      }
+      .modal .card { width: 560px; max-width: 100%; margin: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); }
       .toast {
         position: fixed;
         bottom: 28px;
@@ -424,13 +180,9 @@
         font-size: 16px;
         z-index: 10;
       }
-      #report {
-        display: none;
-      }
+      #report { display: none; }
       @media print {
-        body > *:not(#report) {
-          display: none !important;
-        }
+        body > *:not(#report) { display: none !important; }
         #report {
           display: block;
           font-size: 12px;
@@ -439,9 +191,7 @@
           text-rendering: geometricPrecision;
           -webkit-font-smoothing: antialiased;
         }
-        #report table {
-          font-size: 11px;
-        }
+        #report table { font-size: 11px; }
       }
     </style>
   </head>
@@ -458,6 +208,7 @@
       const STORAGE_KEY = "iphone-processing-v2";
       const IMEI_LENGTH = 15;
       const DEVICE_PREFIX = "DEVICE-";
+      const STORAGE_OPTIONS = ["64GB", "128GB", "256GB", "512GB", "1TB"];
       const STATUS = {
         IN_PROGRESS: "In Progress",
         COMPLETED: "Completed",
@@ -500,7 +251,7 @@
       /* ============================================================
    State
    Saved data: { operator, nextNum, records }
-   A record:   { id, imei, serial, operator, date, time, status, note, step, chk }
+   A record:   { id, imei, serial, brand, model, storage, operator, date, time, status, note, step, chk }
    (chk holds the verify-step ticks: { imei, ser, enr })
    ============================================================ */
       let state = loadState();
@@ -585,6 +336,10 @@
         if (modal) modal.remove();
       }
 
+      function storageDatalistHtml() {
+        return `<datalist id="storage-options">${STORAGE_OPTIONS.map((option) => `<option value="${option}">`).join("")}</datalist>`;
+      }
+
       /* ============================================================
    Device data functions
    ============================================================ */
@@ -593,6 +348,9 @@
           id: DEVICE_PREFIX + String(state.nextNum).padStart(3, "0"),
           imei: "",
           serial: "",
+          brand: "",
+          model: "",
+          storage: "",
           operator: state.operator,
           date: todayString(),
           time: "",
@@ -619,16 +377,20 @@
         return state.records.find((device) => device.id === deviceId);
       }
 
+      function isBlankDevice(device) {
+        return (
+          device.status === STATUS.IN_PROGRESS &&
+          !device.imei &&
+          !device.serial &&
+          !device.brand &&
+          !device.model &&
+          !device.storage
+        );
+      }
+
       // Drops empty devices (nothing typed) and keeps device numbering gap-free.
       function removeBlankDevices() {
-        state.records = state.records.filter(
-          (device) =>
-            !(
-              device.status === STATUS.IN_PROGRESS &&
-              !device.imei &&
-              !device.serial
-            ),
-        );
+        state.records = state.records.filter((device) => !isBlankDevice(device));
         const highestNumber = Math.max(
           0,
           ...state.records.map(
@@ -648,10 +410,7 @@
       // Exports skip blank placeholder devices.
       function devicesForExport() {
         return devicesForSelectedDay().filter(
-          (device) =>
-            device.status !== STATUS.IN_PROGRESS ||
-            device.imei ||
-            device.serial,
+          (device) => !isBlankDevice(device),
         );
       }
 
@@ -661,9 +420,17 @@
         );
       }
 
+      function hasText(value) {
+        return (value || "").trim() !== "";
+      }
+
       function isIdentified(device) {
         return (
-          device.imei.length === IMEI_LENGTH && device.serial.trim() !== ""
+          device.imei.length === IMEI_LENGTH &&
+          hasText(device.serial) &&
+          hasText(device.brand) &&
+          hasText(device.model) &&
+          hasText(device.storage)
         );
       }
 
@@ -743,7 +510,7 @@
 
         const tableRows =
           visibleDevices.map(deviceRowHtml).join("") ||
-          '<tr><td colspan="7" class="mut">No devices yet. Press “Add new device” to start.</td></tr>';
+          '<tr><td colspan="10" class="mut">No devices yet. Press “Add new device” to start.</td></tr>';
 
         $("app").className = "wide";
         $("app").innerHTML = `
@@ -768,7 +535,7 @@
         </div>
       </div>
       <table>
-        <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Time</th><th>Status</th><th>Exception note</th><th></th></tr>
+        <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Brand</th><th>Model</th><th>Storage</th><th>Time</th><th>Status</th><th>Exception note</th><th></th></tr>
         ${tableRows}
       </table>
       <div class="row">
@@ -790,6 +557,9 @@
       <td>${device.id}</td>
       <td class="m">${escapeHtml(device.imei) || "—"}</td>
       <td class="m">${escapeHtml(device.serial) || "—"}</td>
+      <td>${escapeHtml(device.brand) || "—"}</td>
+      <td>${escapeHtml(device.model) || "—"}</td>
+      <td>${escapeHtml(device.storage) || "—"}</td>
       <td>${device.time || "—"}</td>
       <td><span class="tag ${statusClass(device.status)}">${device.status}</span></td>
       <td>${escapeHtml(device.note)}</td>
@@ -849,6 +619,13 @@
     <label>Serial Number</label>
     <input type="text" id="serial-input" value="${escapeHtml(device.serial)}" autocomplete="off">
     <div id="serial-message"></div>
+    <label>Brand</label>
+    <input type="text" class="txt" id="brand-input" value="${escapeHtml(device.brand)}" placeholder="e.g. Apple" autocomplete="off">
+    <label>Model</label>
+    <input type="text" class="txt" id="model-input" value="${escapeHtml(device.model)}" placeholder="e.g. iPhone 13 Pro" autocomplete="off">
+    <label>Storage</label>
+    <input type="text" class="txt" id="storage-input" list="storage-options" value="${escapeHtml(device.storage)}" placeholder="e.g. 128GB" autocomplete="off">
+    ${storageDatalistHtml()}
     <div id="duplicate-warning"></div>
     <div class="row"><span></span><button class="btn" id="continue-button" data-action="confirmIdentifiers">Confirm identifiers →</button></div>`;
       }
@@ -884,6 +661,7 @@
         return `
     <h2>Check the physical device</h2>
     <p class="mut">Compare what is printed on the iPhone with what you entered.</p>
+    <p><b>${escapeHtml(device.brand)} ${escapeHtml(device.model)}</b> · ${escapeHtml(device.storage)}</p>
     <label>IMEI entered</label><div class="big">${escapeHtml(device.imei)}</div>
     <label>Serial entered</label><div class="big">${escapeHtml(device.serial)}</div>
     ${checkboxes}
@@ -903,9 +681,14 @@
         imeiInput.value = imeiInput.value.replace(/\D/g, "");
         device.imei = imeiInput.value;
         device.serial = serialInput.value;
+        device.brand = $("brand-input").value;
+        device.model = $("model-input").value;
+        device.storage = $("storage-input").value;
 
         const imeiValid = device.imei.length === IMEI_LENGTH;
-        const serialValid = device.serial.trim() !== "";
+        const serialValid = hasText(device.serial);
+        const detailsValid =
+          hasText(device.brand) && hasText(device.model) && hasText(device.storage);
         const duplicate = imeiValid ? findDuplicate(device) : null;
 
         if (device.imei.length === 0) {
@@ -936,6 +719,7 @@
         $("continue-button").disabled = !(
           imeiValid &&
           serialValid &&
+          detailsValid &&
           (!duplicate || ui.duplicateAcknowledged)
         );
         persist();
@@ -966,6 +750,9 @@
         confirmIdentifiers() {
           const device = findOpenDevice();
           device.serial = device.serial.trim();
+          device.brand = device.brand.trim();
+          device.model = device.model.trim();
+          device.storage = device.storage.trim();
           device.step = 2;
           persist();
           render();
@@ -1015,6 +802,9 @@
           const device = findDevice(ui.editingId);
           device.imei = $("edit-imei").value;
           device.serial = $("edit-serial").value.trim();
+          device.brand = $("edit-brand").value.trim();
+          device.model = $("edit-model").value.trim();
+          device.storage = $("edit-storage").value.trim();
           if (device.status === STATUS.EXCEPTION)
             device.note = $("edit-note").value.trim();
           persist();
@@ -1098,6 +888,13 @@
     <div id="edit-imei-message"></div>
     <label>Serial Number</label>
     <input type="text" id="edit-serial" value="${escapeHtml(device.serial)}" autocomplete="off">
+    <label>Brand</label>
+    <input type="text" class="txt" id="edit-brand" value="${escapeHtml(device.brand)}" autocomplete="off">
+    <label>Model</label>
+    <input type="text" class="txt" id="edit-model" value="${escapeHtml(device.model)}" autocomplete="off">
+    <label>Storage</label>
+    <input type="text" class="txt" id="edit-storage" list="storage-options" value="${escapeHtml(device.storage)}" autocomplete="off">
+    ${storageDatalistHtml()}
     ${noteField}
     <div class="row">
       <button class="btn sec" data-action="closeModal">Cancel</button>
@@ -1203,6 +1000,9 @@
           "Device ID",
           "IMEI",
           "Serial Number",
+          "Brand",
+          "Model",
+          "Storage",
           "Operator",
           "Date",
           "Time Completed",
@@ -1213,6 +1013,9 @@
           csvCell(device.id),
           csvTextCell(device.imei),
           csvTextCell(device.serial),
+          csvCell(device.brand),
+          csvCell(device.model),
+          csvCell(device.storage),
           csvCell(device.operator),
           csvCell(device.date),
           csvCell(device.time),
@@ -1239,6 +1042,7 @@
           .map(
             (device) => `
     <tr><td>${device.id}</td><td>${escapeHtml(device.imei)}</td><td>${escapeHtml(device.serial)}</td>
+        <td>${escapeHtml(device.brand)}</td><td>${escapeHtml(device.model)}</td><td>${escapeHtml(device.storage)}</td>
         <td>${escapeHtml(device.operator)}</td><td>${device.time}</td><td>${device.status}</td><td>${escapeHtml(device.note)}</td></tr>`,
           )
           .join("");
@@ -1250,7 +1054,7 @@
        Total exceptions: <b>${countByStatus(devices, STATUS.EXCEPTION)}</b> ·
        In progress: ${countByStatus(devices, STATUS.IN_PROGRESS)}</p>
     <table>
-      <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Operator</th><th>Time</th><th>Status</th><th>Exception note</th></tr>
+      <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Brand</th><th>Model</th><th>Storage</th><th>Operator</th><th>Time</th><th>Status</th><th>Exception note</th></tr>
       ${rows}
     </table>`;
         window.print();
@@ -1274,6 +1078,12 @@
           updateIdentifyForm();
         } else if (id === "serial-input") {
           ui.serialTouched = true;
+          updateIdentifyForm();
+        } else if (
+          id === "brand-input" ||
+          id === "model-input" ||
+          id === "storage-input"
+        ) {
           updateIdentifyForm();
         } else if (id === "name-input") {
           $("start-button").disabled = !value.trim();
@@ -1307,9 +1117,15 @@
       document.addEventListener("keydown", (event) => {
         if (event.key !== "Enter") return;
         const { id } = event.target;
+        const nextField = {
+          "imei-input": "serial-input",
+          "serial-input": "brand-input",
+          "brand-input": "model-input",
+          "model-input": "storage-input",
+        };
         if (id === "name-input") actions.startSession();
-        if (id === "imei-input") $("serial-input").focus();
-        if (id === "serial-input" && !$("continue-button").disabled)
+        if (nextField[id]) $(nextField[id]).focus();
+        if (id === "storage-input" && !$("continue-button").disabled)
           actions.confirmIdentifiers();
       });
 

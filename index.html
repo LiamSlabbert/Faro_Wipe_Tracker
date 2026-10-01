@@ -199,6 +199,8 @@
     <header><b>📱 Faro Device Wipe Tracker</b><span id="who"></span></header>
     <main id="app"></main>
     <div id="report"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
     <script>
       "use strict";
 
@@ -1038,6 +1040,47 @@
       // Fills the hidden print-only report, then opens the print dialog ("Save as PDF").
       function exportPdf() {
         const devices = devicesForExport();
+        // If the PDF library could not load (e.g. offline), fall back to the print dialog.
+        if (!window.jspdf || !window.jspdf.jsPDF) return printReport(devices);
+
+        const doc = new window.jspdf.jsPDF({
+          orientation: "landscape",
+          unit: "pt",
+          format: "a4",
+        });
+        doc.setFontSize(16);
+        doc.text("Faro Device Wipe Tracker - Daily Report", 40, 42);
+        doc.setFontSize(10);
+        doc.text(`Date: ${ui.date}    Operator: ${state.operator}`, 40, 62);
+        doc.text(
+          `Completed: ${countByStatus(devices, STATUS.COMPLETED)}    Exceptions: ${countByStatus(devices, STATUS.EXCEPTION)}    In progress: ${countByStatus(devices, STATUS.IN_PROGRESS)}`,
+          40,
+          77,
+        );
+        doc.autoTable({
+          startY: 92,
+          head: [
+            ["Device ID", "IMEI", "Serial", "Brand", "Model", "Storage", "Operator", "Time", "Status", "Exception note"],
+          ],
+          body: devices.map((device) => [
+            device.id,
+            device.imei,
+            device.serial,
+            device.brand || "",
+            device.model || "",
+            device.storage || "",
+            device.operator,
+            device.time,
+            device.status,
+            device.note,
+          ]),
+          styles: { fontSize: 8, cellPadding: 4 },
+          headStyles: { fillColor: [0, 113, 227] },
+        });
+        doc.save(`devices-${state.operator.replace(/\W+/g, "-")}-${ui.date}.pdf`);
+      }
+
+      function printReport(devices) {
         const rows = devices
           .map(
             (device) => `

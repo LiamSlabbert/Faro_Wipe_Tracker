@@ -22,10 +22,20 @@
         --warnbg: #fff6e0;
         --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.06);
       }
-      * { box-sizing: border-box; }
+      * {
+        box-sizing: border-box;
+      }
       body {
         margin: 0;
-        font: 18px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font:
+          18px/1.45 -apple-system,
+          BlinkMacSystemFont,
+          "SF Pro Text",
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
         background: var(--bg);
         color: var(--ink);
         -webkit-font-smoothing: antialiased;
@@ -42,18 +52,68 @@
         display: flex;
         align-items: center;
       }
-      header b { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-right: auto; }
-      #who { font-size: 16px; color: var(--mut); }
-      #who a { color: var(--pri); margin-left: 8px; text-decoration: none; font-weight: 500; }
-      main { max-width: 860px; margin: 36px auto; padding: 0 24px; }
-      main.wide { max-width: 1250px; }
-      .card { background: var(--card); border-radius: 22px; box-shadow: var(--shadow); padding: 32px; margin-bottom: 20px; }
-      h1 { margin: 0 0 6px; font-size: 34px; font-weight: 700; letter-spacing: -0.022em; }
-      h2 { margin: 0 0 16px; font-size: 26px; font-weight: 600; letter-spacing: -0.015em; }
-      .mut { color: var(--mut); }
-      a { color: var(--pri); text-decoration: none; font-weight: 500; font-size: 16px; }
-      label { display: block; font-weight: 600; font-size: 16px; margin: 22px 0 8px; }
-      input[type="text"], textarea, select, input[type="date"] {
+      header b {
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        margin-right: auto;
+      }
+      #who {
+        font-size: 16px;
+        color: var(--mut);
+      }
+      #who a {
+        color: var(--pri);
+        margin-left: 8px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      main {
+        max-width: 860px;
+        margin: 36px auto;
+        padding: 0 24px;
+      }
+      main.wide {
+        max-width: 2000px;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        padding: 32px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        margin: 0 0 6px;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: -0.022em;
+      }
+      h2 {
+        margin: 0 0 16px;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+      }
+      .mut {
+        color: var(--mut);
+      }
+      a {
+        color: var(--pri);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 16px;
+        margin: 22px 0 8px;
+      }
+      input[type="text"],
+      textarea,
+      select,
+      input[type="date"] {
         width: 100%;
         font-size: 28px;
         padding: 14px 18px;
@@ -62,22 +122,65 @@
         background-color: var(--fill);
         color: var(--ink);
         font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-        transition: box-shadow 0.15s, border-color 0.15s, background 0.15s;
+        transition:
+          box-shadow 0.15s,
+          border-color 0.15s,
+          background 0.15s;
       }
-      input[type="text"], textarea { -webkit-appearance: none; appearance: none; box-shadow: none; }
-      select, input[type="date"] { font-family: inherit; font-size: 17px; padding: 11px 14px; width: auto; }
-      textarea { font-size: 19px; font-family: inherit; min-height: 110px; }
-      input.txt { font-family: inherit; font-size: 22px; }
-      input:focus, textarea:focus, select:focus {
+      input[type="text"],
+      textarea {
+        -webkit-appearance: none;
+        appearance: none;
+        box-shadow: none;
+      }
+      select,
+      input[type="date"] {
+        font-family: inherit;
+        font-size: 17px;
+        padding: 11px 14px;
+        width: auto;
+      }
+      textarea {
+        font-size: 19px;
+        font-family: inherit;
+        min-height: 110px;
+      }
+      input.txt {
+        font-family: inherit;
+        font-size: 22px;
+      }
+      input[type="text"].search {
+        font-family: inherit;
+        font-size: 17px;
+        padding: 11px 14px;
+        width: 280px;
+      }
+      input:focus,
+      textarea:focus,
+      select:focus {
         outline: none;
         background: #fff;
         border-color: var(--pri);
         box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.18);
       }
-      .msg { margin-top: 10px; padding: 11px 16px; border-radius: 12px; font-size: 16px; }
-      .e { background: var(--errbg); color: var(--err); }
-      .g { background: var(--okbg); color: var(--ok); }
-      .w { background: var(--warnbg); color: var(--warn); }
+      .msg {
+        margin-top: 10px;
+        padding: 11px 16px;
+        border-radius: 12px;
+        font-size: 16px;
+      }
+      .e {
+        background: var(--errbg);
+        color: var(--err);
+      }
+      .g {
+        background: var(--okbg);
+        color: var(--ok);
+      }
+      .w {
+        background: var(--warnbg);
+        color: var(--warn);
+      }
       button.btn {
         font-weight: 600;
         font-size: 19px;
@@ -89,32 +192,98 @@
         background: var(--pri);
         color: #fff;
         cursor: pointer;
-        transition: background 0.15s, transform 0.05s;
+        transition:
+          background 0.15s,
+          transform 0.05s;
       }
-      button.btn:hover:not(:disabled) { background: var(--pri-h); }
-      button.btn:active:not(:disabled) { transform: scale(0.98); }
-      button.btn:disabled { background: #e3e3e8; color: #a1a1a6; cursor: not-allowed; }
-      button.btn.ok { background: var(--ok); }
-      button.btn.ok:disabled { background: #e3e3e8; }
-      button.btn.sec { background: #ececf0; color: var(--ink); font-size: 16px; padding: 12px 20px; }
-      button.btn.sec:hover:not(:disabled) { background: #e3e3e8; }
-      button.btn.dng { background: var(--errbg); color: var(--err); font-size: 16px; padding: 12px 20px; }
-      button.btn.dng:hover:not(:disabled) { background: #fbd9dd; }
-      button.btn.dng:disabled { background: #f0f0f3; color: #b0b0b5; }
-      .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: space-between; margin-top: 28px; }
-      .prog { display: flex; gap: 8px; margin-bottom: 26px; }
-      .prog div { flex: 1; padding: 10px 6px; text-align: center; border-radius: 12px; background: #ececf0; color: var(--mut); font-size: 14px; font-weight: 600; }
-      .prog .done { background: var(--okbg); color: var(--ok); }
-      .prog .act { background: var(--pri); color: #fff; }
+      button.btn:hover:not(:disabled) {
+        background: var(--pri-h);
+      }
+      button.btn:active:not(:disabled) {
+        transform: scale(0.98);
+      }
+      button.btn:disabled {
+        background: #e3e3e8;
+        color: #a1a1a6;
+        cursor: not-allowed;
+      }
+      button.btn.ok {
+        background: var(--ok);
+      }
+      button.btn.ok:disabled {
+        background: #e3e3e8;
+      }
+      button.btn.sec {
+        background: #ececf0;
+        color: var(--ink);
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+      button.btn.sec:hover:not(:disabled) {
+        background: #e3e3e8;
+      }
+      button.btn.dng {
+        background: var(--errbg);
+        color: var(--err);
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+      button.btn.dng:hover:not(:disabled) {
+        background: #fbd9dd;
+      }
+      button.btn.dng:disabled {
+        background: #f0f0f3;
+        color: #b0b0b5;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 28px;
+      }
+      .prog {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 26px;
+      }
+      .prog div {
+        flex: 1;
+        padding: 10px 6px;
+        text-align: center;
+        border-radius: 12px;
+        background: #ececf0;
+        color: var(--mut);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .prog .done {
+        background: var(--okbg);
+        color: var(--ok);
+      }
+      .prog .act {
+        background: var(--pri);
+        color: #fff;
+      }
       .dev {
-        font: 600 15px ui-monospace, "SF Mono", Menlo, monospace;
+        font:
+          600 15px ui-monospace,
+          "SF Mono",
+          Menlo,
+          monospace;
         color: var(--pri);
         background: rgba(0, 113, 227, 0.1);
         padding: 5px 12px;
         border-radius: 99px;
       }
       .big {
-        font: 600 34px ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        font:
+          600 34px ui-monospace,
+          "SF Mono",
+          Menlo,
+          Consolas,
+          monospace;
         background: var(--fill);
         padding: 14px 20px;
         border-radius: 14px;
@@ -132,27 +301,152 @@
         font-size: 20px;
         font-weight: 600;
         cursor: pointer;
-        transition: background 0.15s, border-color 0.15s;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
       }
-      .chk input { width: 28px; height: 28px; accent-color: var(--ok); }
-      .chk.on { border-color: var(--ok); background: var(--okbg); }
-      .sum { display: flex; gap: 16px; margin-bottom: 20px; }
-      .sum div { flex: 1; background: var(--card); border-radius: 20px; box-shadow: var(--shadow); padding: 20px 24px; font-size: 15px; color: var(--mut); }
-      .sum b { display: block; font-size: 42px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
-      table { width: 100%; border-collapse: collapse; font-size: 16px; }
-      th, td { text-align: left; padding: 14px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
-      th { color: var(--mut); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-      tr:last-child td { border-bottom: 0; }
-      td.m { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
-      .tag { padding: 4px 12px; border-radius: 99px; font-size: 14px; font-weight: 600; white-space: nowrap; }
-      .Completed { background: var(--okbg); color: var(--ok); }
-      .Exception { background: var(--errbg); color: var(--err); }
-      .In-Progress { background: var(--warnbg); color: var(--warn); }
-      .icon-btn { background: var(--fill); border: 0; border-radius: 10px; padding: 9px; cursor: pointer; color: var(--ink); line-height: 0; margin-left: 6px; transition: background 0.15s; }
-      .icon-btn:hover { background: #e3e3e8; }
-      .icon-btn.del { color: var(--err); }
-      .icon-btn.del:hover { background: var(--errbg); }
-      .icon-btn svg { width: 20px; height: 20px; }
+      .chk input {
+        width: 28px;
+        height: 28px;
+        accent-color: var(--ok);
+      }
+      .chk.on {
+        border-color: var(--ok);
+        background: var(--okbg);
+      }
+      .sum {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .sum div {
+        flex: 1;
+        background: var(--card);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 20px 24px;
+        font-size: 15px;
+        color: var(--mut);
+      }
+      .sum b {
+        display: block;
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+      .tablewrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      th {
+        color: var(--mut);
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      td.m {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      }
+      .tag {
+        padding: 4px 12px;
+        border-radius: 99px;
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .Completed {
+        background: var(--okbg);
+        color: var(--ok);
+      }
+      .Exception {
+        background: var(--errbg);
+        color: var(--err);
+      }
+      .In-Progress {
+        background: var(--warnbg);
+        color: var(--warn);
+      }
+      .QC-Failed {
+        background: #f3e8fd;
+        color: #7a2fb5;
+      }
+      .opts {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .opt {
+        flex: 1;
+        min-width: 130px;
+        padding: 16px 20px;
+        border: 1.5px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+        font-size: 20px;
+        font-weight: 600;
+        font-family: inherit;
+        color: var(--ink);
+        text-align: center;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .opt:hover {
+        background: var(--fill);
+      }
+      .opt.on {
+        border-color: var(--pri);
+        background: rgba(0, 113, 227, 0.08);
+        color: var(--pri);
+      }
+      .opt.bad.on {
+        border-color: var(--err);
+        background: var(--errbg);
+        color: var(--err);
+      }
+      .icon-btn {
+        background: var(--fill);
+        border: 0;
+        border-radius: 10px;
+        padding: 9px;
+        cursor: pointer;
+        color: var(--ink);
+        line-height: 0;
+        margin-left: 6px;
+        transition: background 0.15s;
+      }
+      .icon-btn:hover {
+        background: #e3e3e8;
+      }
+      .icon-btn.del {
+        color: var(--err);
+      }
+      .icon-btn.del:hover {
+        background: var(--errbg);
+      }
+      .icon-btn svg {
+        width: 20px;
+        height: 20px;
+      }
       .modal {
         position: fixed;
         inset: 0;
@@ -166,7 +460,12 @@
         padding: 20px;
         overflow-y: auto;
       }
-      .modal .card { width: 560px; max-width: 100%; margin: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25); }
+      .modal .card {
+        width: 560px;
+        max-width: 100%;
+        margin: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      }
       .toast {
         position: fixed;
         bottom: 28px;
@@ -180,9 +479,13 @@
         font-size: 16px;
         z-index: 10;
       }
-      #report { display: none; }
+      #report {
+        display: none;
+      }
       @media print {
-        body > *:not(#report) { display: none !important; }
+        body > *:not(#report) {
+          display: none !important;
+        }
         #report {
           display: block;
           font-size: 12px;
@@ -191,7 +494,9 @@
           text-rendering: geometricPrecision;
           -webkit-font-smoothing: antialiased;
         }
-        #report table { font-size: 11px; }
+        #report table {
+          font-size: 11px;
+        }
       }
     </style>
   </head>
@@ -209,14 +514,74 @@
    ============================================================ */
       const STORAGE_KEY = "iphone-processing-v2";
       const IMEI_LENGTH = 15;
-      const DEVICE_PREFIX = "DEVICE-";
+      const STATE_VERSION = 2; // bumped when the saved data layout changes
       const STORAGE_OPTIONS = ["64GB", "128GB", "256GB", "512GB", "1TB"];
       const STATUS = {
         IN_PROGRESS: "In Progress",
         COMPLETED: "Completed",
         EXCEPTION: "Exception",
+        QC_FAILED: "QC Failed",
       };
-      const STEP_LABELS = ["Identify", "Wipe", "Power off", "Verify"];
+      const STEP_LABELS = [
+        "Identify",
+        "PhoneCheck",
+        "Physical QC",
+        "Wipe",
+        "Power off",
+        "Verify",
+      ];
+      const QC_GRADES = ["A", "B", "C"];
+      const QC_BATTERY_OPTIONS = ["Normal", "Overheating"];
+      const QC_GRADE_LABELS = { A: "Excellent", B: "Good", C: "Poor" };
+      const QC_PHONECHECK_OPTIONS = ["Pass", "Fail"];
+      // Reasons for failing Physical QC (PhoneCheck failures have their own notes).
+      const QC_FAIL_REASONS = [
+        "Overheating battery",
+        "Cracked or damaged screen",
+        "Low battery health",
+        "Heavy cosmetic damage",
+        "iCloud / MDM locked",
+        "Other",
+      ];
+      // Suggestions only: other models can still be typed in.
+      const MODEL_OPTIONS = [
+        "iPhone 8",
+        "iPhone 8 Plus",
+        "iPhone X",
+        "iPhone XR",
+        "iPhone XS",
+        "iPhone XS Max",
+        "iPhone SE (2nd Gen)",
+        "iPhone SE (3rd Gen)",
+        "iPhone 11",
+        "iPhone 11 Pro",
+        "iPhone 11 Pro Max",
+        "iPhone 12 mini",
+        "iPhone 12",
+        "iPhone 12 Pro",
+        "iPhone 12 Pro Max",
+        "iPhone 13 mini",
+        "iPhone 13",
+        "iPhone 13 Pro",
+        "iPhone 13 Pro Max",
+        "iPhone 14",
+        "iPhone 14 Plus",
+        "iPhone 14 Pro",
+        "iPhone 14 Pro Max",
+        "iPhone 15",
+        "iPhone 15 Plus",
+        "iPhone 15 Pro",
+        "iPhone 15 Pro Max",
+        "iPhone 16e",
+        "iPhone 16",
+        "iPhone 16 Plus",
+        "iPhone 16 Pro",
+        "iPhone 16 Pro Max",
+        "iPhone 17",
+        "iPhone Air",
+        "iPhone 17 Pro",
+        "iPhone 17 Pro Max",
+      ];
       const VERIFY_CHECKS = [
         { key: "imei", label: "IMEI matches the device" },
         { key: "ser", label: "Serial Number matches the device" },
@@ -252,9 +617,15 @@
 
       /* ============================================================
    State
-   Saved data: { operator, nextNum, records }
-   A record:   { id, imei, serial, brand, model, storage, operator, date, time, status, note, step, chk }
+   Saved data: { operator, records }
+   A record:   { imei, serial, brand, model, storage, operator, date, status, note, step, chk,
+                 qcPhonecheck, pcNote, qcResult, qcGrade, qcBattery, qcNote, qcReason }
    (chk holds the verify-step ticks: { imei, ser, enr })
+   (PhoneCheck and Physical QC are separate: qcPhonecheck is "Pass" or "Fail" and pcNote says
+    which test failed. qcResult is the Physical QC result ("Pass" or "Fail", empty if never
+    reached); qcGrade is A/B/C; qcBattery is Normal/Overheating; qcReason/qcNote say why
+    Physical QC failed. Either kind of failure gives the device the status "QC Failed".)
+   Devices have no ID of their own: they are identified by IMEI / Serial.
    ============================================================ */
       let state = loadState();
 
@@ -264,17 +635,61 @@
         changingName: false,
         date: todayString(),
         statusFilter: "",
-        pendingName: "",
+        search: "",
         serialTouched: false,
         duplicateAcknowledged: false,
-        editingId: "",
-        deletingId: "",
+        editing: null, // the record open in the edit window
+        deleting: null, // the record waiting to be deleted
       };
 
       function loadState() {
         const saved = storage.load();
-        if (saved && Array.isArray(saved.records)) return saved;
-        return { operator: null, nextNum: 1, records: [] };
+        if (saved && Array.isArray(saved.records)) {
+          const oldVersion = saved.version || 1;
+          saved.records.forEach((device) => {
+            // The status used to be called "Physical QC Failed".
+            if (device.status === "Physical QC Failed")
+              device.status = STATUS.QC_FAILED;
+            // Records saved before QC existed: add the QC fields.
+            if (device.qcResult === undefined) {
+              device.qcResult = "";
+              device.qcGrade = "";
+              device.qcBattery = "";
+              device.qcNote = "";
+              // A device already part-way through must now do QC before it is wiped.
+              if (device.status === STATUS.IN_PROGRESS && device.step > 2)
+                device.step = 2;
+            }
+            // Records saved before PhoneCheck result and fail reason existed.
+            if (device.qcPhonecheck === undefined) {
+              device.qcPhonecheck = "";
+              device.qcReason = "";
+            }
+            if (device.pcNote === undefined) device.pcNote = "";
+            if (oldVersion < 2) {
+              // PhoneCheck is now its own step (2), so the later steps moved up by one.
+              if (device.status === STATUS.IN_PROGRESS && device.step >= 3)
+                device.step += 1;
+              // A PhoneCheck failure used to count as a Physical QC failure too. Now it doesn't.
+              if (device.qcPhonecheck === "Fail") {
+                device.pcNote = [
+                  device.qcReason === "PhoneCheck test failed"
+                    ? ""
+                    : device.qcReason,
+                  (device.qcNote || "").trim(),
+                ]
+                  .filter(Boolean)
+                  .join(" - ");
+                device.qcResult = "";
+                device.qcReason = "";
+                device.qcNote = "";
+              }
+            }
+          });
+          saved.version = STATE_VERSION;
+          return saved;
+        }
+        return { operator: null, version: STATE_VERSION, records: [] };
       }
 
       function persist() {
@@ -294,11 +709,6 @@
         return `${now.getFullYear()}-${pad2(now.getMonth() + 1)}-${pad2(now.getDate())}`;
       }
 
-      function timeString() {
-        const now = new Date();
-        return `${pad2(now.getHours())}:${pad2(now.getMinutes())}:${pad2(now.getSeconds())}`;
-      }
-
       function escapeHtml(text) {
         const replacements = {
           "&": "&amp;",
@@ -312,7 +722,7 @@
         );
       }
 
-      const statusClass = (status) => status.replace(" ", "-");
+      const statusClass = (status) => status.replace(/\s+/g, "-");
       const countByStatus = (devices, status) =>
         devices.filter((device) => device.status === status).length;
 
@@ -347,7 +757,6 @@
    ============================================================ */
       function createDevice() {
         const device = {
-          id: DEVICE_PREFIX + String(state.nextNum).padStart(3, "0"),
           imei: "",
           serial: "",
           brand: "",
@@ -355,13 +764,18 @@
           storage: "",
           operator: state.operator,
           date: todayString(),
-          time: "",
           status: STATUS.IN_PROGRESS,
           note: "",
           step: 1,
           chk: {},
+          qcResult: "",
+          qcGrade: "",
+          qcBattery: "",
+          qcNote: "",
+          qcPhonecheck: "",
+          pcNote: "",
+          qcReason: "",
         };
-        state.nextNum += 1;
         state.records.push(device);
         persist();
         return device;
@@ -375,8 +789,9 @@
         );
       }
 
-      function findDevice(deviceId) {
-        return state.records.find((device) => device.id === deviceId);
+      // Rows in the list point at a record by its position in state.records.
+      function deviceAtIndex(index) {
+        return state.records[Number(index)];
       }
 
       function isBlankDevice(device) {
@@ -390,16 +805,11 @@
         );
       }
 
-      // Drops empty devices (nothing typed) and keeps device numbering gap-free.
+      // Drops empty devices (nothing typed).
       function removeBlankDevices() {
-        state.records = state.records.filter((device) => !isBlankDevice(device));
-        const highestNumber = Math.max(
-          0,
-          ...state.records.map(
-            (device) => Number(device.id.slice(DEVICE_PREFIX.length)) || 0,
-          ),
+        state.records = state.records.filter(
+          (device) => !isBlankDevice(device),
         );
-        state.nextNum = highestNumber + 1;
       }
 
       function devicesForSelectedDay() {
@@ -418,8 +828,13 @@
 
       function findDuplicate(device) {
         return state.records.find(
-          (other) => other.id !== device.id && other.imei === device.imei,
+          (other) => other !== device && other.imei === device.imei,
         );
+      }
+
+      // How a device is named on screen: by its IMEI, or its Serial if there is no IMEI yet.
+      function deviceLabel(device) {
+        return device.imei || device.serial || "Device";
       }
 
       function hasText(value) {
@@ -436,6 +851,46 @@
         );
       }
 
+      function canPassQc(device) {
+        return device.qcBattery === "Normal" && hasText(device.qcGrade);
+      }
+
+      // Failing needs a reason; "Other" also needs a note saying what it was.
+      function canFailQc(device) {
+        if (!hasText(device.qcReason)) return false;
+        return device.qcReason !== "Other" || hasText(device.qcNote);
+      }
+
+      // Note shown in lists and reports: the exception note, or why a device failed QC
+      // (a PhoneCheck failure or a Physical QC failure).
+      function noteText(device) {
+        if (device.note) return device.note;
+        if (device.status === STATUS.QC_FAILED) {
+          if (device.qcPhonecheck === "Fail")
+            return ["PhoneCheck failed", (device.pcNote || "").trim()]
+              .filter(Boolean)
+              .join(" - ");
+          return [device.qcReason, (device.qcNote || "").trim()]
+            .filter(Boolean)
+            .join(" - ");
+        }
+        return "";
+      }
+
+      // Fixes capitalisation and spacing, e.g. "iphone13pro" -> "iPhone 13 Pro".
+      function canonicalModel(text) {
+        const squash = (value) => value.toLowerCase().replace(/[\s()]/g, "");
+        const typed = text.trim().replace(/\s+/g, " ");
+        const match = MODEL_OPTIONS.find(
+          (model) => squash(model) === squash(typed),
+        );
+        return match || typed;
+      }
+
+      function modelDatalistHtml() {
+        return `<datalist id="model-options">${MODEL_OPTIONS.map((model) => `<option value="${model}">`).join("")}</datalist>`;
+      }
+
       function isFullyVerified(device) {
         return VERIFY_CHECKS.every((check) => device.chk[check.key]);
       }
@@ -444,13 +899,14 @@
         device.status = status;
         device.note = note;
         device.date = todayString();
-        device.time = timeString();
         persist();
         closeModal();
         showToast(
           status === STATUS.COMPLETED
-            ? `${device.id} completed ✓`
-            : `${device.id} saved as exception`,
+            ? `${deviceLabel(device)} completed ✓`
+            : status === STATUS.QC_FAILED
+              ? `${deviceLabel(device)} marked QC Failed`
+              : `${deviceLabel(device)} saved as exception`,
         );
         ui.screen = "home";
         render();
@@ -476,13 +932,13 @@
     <div class="card">
       ${currentName ? '<button class="btn sec" data-action="cancelChangeName">← Back</button>' : ""}
       <h1 style="margin-top:${currentName ? 16 : 0}px">Who is working?</h1>
-      <p class="mut">Your name is saved on every device you process.</p>
+      <p class="mut">${currentName ? "Changing your name updates it on all of your existing devices." : "Your name is saved on every device you process."}</p>
       <label>Enter your name</label>
       <input type="text" id="name-input" style="font-family:inherit" value="${escapeHtml(currentName)}"
              placeholder="e.g. Liam" autocomplete="off">
       <div class="row">
         <span></span>
-        <button class="btn" id="start-button" data-action="startSession" ${currentName ? "" : "disabled"}>Start session →</button>
+        <button class="btn" id="start-button" data-action="startSession" ${currentName ? "" : "disabled"}>${currentName ? "Save name →" : "Start session →"}</button>
       </div>
     </div>`;
         const input = $("name-input");
@@ -492,15 +948,10 @@
 
       function renderHomeScreen() {
         const devices = devicesForSelectedDay();
-        const visibleDevices = devices
-          .filter(
-            (device) => !ui.statusFilter || device.status === ui.statusFilter,
-          )
-          .sort((a, b) => b.id.localeCompare(a.id));
         const openDevice = findOpenDevice();
 
         const mainButton = openDevice
-          ? `<button class="btn" data-action="resumeDevice">▶ Resume ${openDevice.id}</button>`
+          ? `<button class="btn" data-action="resumeDevice">▶ Resume current device</button>`
           : '<button class="btn" data-action="addDevice">＋ Add new device</button>';
 
         const statusOptions = Object.values(STATUS)
@@ -510,10 +961,6 @@
           )
           .join("");
 
-        const tableRows =
-          visibleDevices.map(deviceRowHtml).join("") ||
-          '<tr><td colspan="10" class="mut">No devices yet. Press “Add new device” to start.</td></tr>';
-
         $("app").className = "wide";
         $("app").innerHTML = `
     <div class="row" style="margin:0 0 18px">
@@ -522,6 +969,7 @@
     </div>
     <div class="sum">
       <div><b>${countByStatus(devices, STATUS.COMPLETED)}</b>Completed</div>
+      <div><b style="color:#7a2fb5">${countByStatus(devices, STATUS.QC_FAILED)}</b>QC Failed</div>
       <div><b style="color:var(--err)">${countByStatus(devices, STATUS.EXCEPTION)}</b>Exceptions</div>
       <div><b>${countByStatus(devices, STATUS.IN_PROGRESS)}</b>In Progress</div>
     </div>
@@ -530,16 +978,19 @@
         <div>
           <input type="date" data-filter="date" value="${ui.date}">
           <select data-filter="status"><option value="">All statuses</option>${statusOptions}</select>
+          <input type="text" class="search" id="search-input" placeholder="Search IMEI, serial, model…" value="${escapeHtml(ui.search)}" autocomplete="off">
         </div>
         <div>
           <button class="btn sec" data-action="exportCsv">Export CSV</button>
-          <button class="btn sec" data-action="exportPdf">Export PDF</button>
+          <button class="btn sec" data-action="exportPdf">Export PDF report</button>
         </div>
       </div>
+      <div class="tablewrap">
       <table>
-        <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Brand</th><th>Model</th><th>Storage</th><th>Time</th><th>Status</th><th>Exception note</th><th></th></tr>
-        ${tableRows}
+        <thead><tr><th>IMEI</th><th>Serial</th><th>Brand</th><th>Model</th><th>Storage</th><th>PhoneCheck</th><th>Physical QC</th><th>Status</th><th>Note</th><th></th></tr></thead>
+        <tbody id="device-rows">${deviceRowsHtml()}</tbody>
       </table>
+      </div>
       <div class="row">
         <span></span>
         <button class="btn dng" data-action="clearAllData">Clear all data</button>
@@ -547,26 +998,83 @@
     </div>`;
       }
 
+      function matchesSearch(device) {
+        const query = ui.search.trim().toLowerCase();
+        if (!query) return true;
+        return [
+          device.imei,
+          device.serial,
+          device.brand,
+          device.model,
+          device.storage,
+          device.status,
+          device.qcResult,
+          device.qcGrade,
+          device.qcBattery,
+          device.qcNote,
+          device.qcReason,
+          device.qcPhonecheck,
+          device.pcNote,
+          device.note,
+        ]
+          .join(" ")
+          .toLowerCase()
+          .includes(query);
+      }
+
+      function deviceRowsHtml() {
+        const devices = devicesForSelectedDay();
+        // Newest first: records are stored in the order they were added.
+        const visible = devices
+          .filter(
+            (device) => !ui.statusFilter || device.status === ui.statusFilter,
+          )
+          .filter(matchesSearch)
+          .reverse();
+        if (visible.length) return visible.map(deviceRowHtml).join("");
+        const message = devices.length
+          ? "No devices match your search or filter."
+          : "No devices yet. Press “Add new device” to start.";
+        return `<tr><td colspan="10" class="mut">${message}</td></tr>`;
+      }
+
       function deviceRowHtml(device) {
+        const index = state.records.indexOf(device);
         const firstButton =
           device.status === STATUS.IN_PROGRESS
             ? '<button class="btn sec" data-action="resumeDevice">Resume</button>'
-            : `<button class="icon-btn" title="Edit" aria-label="Edit ${device.id}" data-action="openEditModal" data-id="${device.id}">${ICONS.edit}</button>`;
+            : `<button class="icon-btn" title="Edit" aria-label="Edit ${escapeHtml(deviceLabel(device))}" data-action="openEditModal" data-index="${index}">${ICONS.edit}</button>`;
         const rowButtons = `${firstButton}
-    <button class="icon-btn del" title="Delete" aria-label="Delete ${device.id}" data-action="openDeleteModal" data-id="${device.id}">${ICONS.trash}</button>`;
+    <button class="icon-btn del" title="Delete" aria-label="Delete ${escapeHtml(deviceLabel(device))}" data-action="openDeleteModal" data-index="${index}">${ICONS.trash}</button>`;
         return `
     <tr>
-      <td>${device.id}</td>
       <td class="m">${escapeHtml(device.imei) || "—"}</td>
       <td class="m">${escapeHtml(device.serial) || "—"}</td>
       <td>${escapeHtml(device.brand) || "—"}</td>
       <td>${escapeHtml(device.model) || "—"}</td>
       <td>${escapeHtml(device.storage) || "—"}</td>
-      <td>${device.time || "—"}</td>
+      <td>${phonecheckCellHtml(device)}</td>
+      <td>${qcCellHtml(device)}</td>
       <td><span class="tag ${statusClass(device.status)}">${device.status}</span></td>
-      <td>${escapeHtml(device.note)}</td>
+      <td>${escapeHtml(noteText(device))}</td>
       <td style="white-space:nowrap">${rowButtons}</td>
     </tr>`;
+      }
+
+      function phonecheckCellHtml(device) {
+        if (device.qcPhonecheck === "Pass")
+          return '<span class="tag Completed">Pass</span>';
+        if (device.qcPhonecheck === "Fail")
+          return '<span class="tag QC-Failed">Fail</span>';
+        return "—";
+      }
+
+      function qcCellHtml(device) {
+        if (device.qcResult === "Pass")
+          return `<span class="tag Completed">Pass</span> <b>${escapeHtml(device.qcGrade)}</b>`;
+        if (device.qcResult === "Fail")
+          return `<span class="tag QC-Failed">Fail</span>${device.qcGrade ? ` <b>${escapeHtml(device.qcGrade)}</b>` : ""}`;
+        return "—";
       }
 
       function renderDeviceScreen() {
@@ -578,9 +1086,11 @@
 
         const stepRenderers = {
           1: identifyStepHtml,
-          2: wipeStepHtml,
-          3: powerOffStepHtml,
-          4: verifyStepHtml,
+          2: phonecheckStepHtml,
+          3: physicalQcStepHtml,
+          4: wipeStepHtml,
+          5: powerOffStepHtml,
+          6: verifyStepHtml,
         };
         const progressBar = STEP_LABELS.map((label, index) => {
           const stepNumber = index + 1;
@@ -598,7 +1108,7 @@
         $("app").innerHTML = `
     <div class="card">
       <div class="row" style="margin:0 0 14px">
-        <span class="dev">${device.id}</span>
+        <span class="dev">${escapeHtml(device.imei || device.serial) || "New device"}</span>
         <a href="#" data-action="backToList">← Back to my devices</a>
       </div>
       <div class="prog">${progressBar}</div>
@@ -609,6 +1119,7 @@
     </div>`;
 
         if (device.step === 1) updateIdentifyForm();
+        if (device.step === 3) updateQcForm();
       }
 
       function identifyStepHtml(device) {
@@ -624,12 +1135,101 @@
     <label>Brand</label>
     <input type="text" class="txt" id="brand-input" value="${escapeHtml(device.brand)}" placeholder="e.g. Apple" autocomplete="off">
     <label>Model</label>
-    <input type="text" class="txt" id="model-input" value="${escapeHtml(device.model)}" placeholder="e.g. iPhone 13 Pro" autocomplete="off">
+    <input type="text" class="txt" id="model-input" list="model-options" value="${escapeHtml(device.model)}" placeholder="e.g. iPhone 13 Pro" autocomplete="off">
+    ${modelDatalistHtml()}
     <label>Storage</label>
     <input type="text" class="txt" id="storage-input" list="storage-options" value="${escapeHtml(device.storage)}" placeholder="e.g. 128GB" autocomplete="off">
     ${storageDatalistHtml()}
     <div id="duplicate-warning"></div>
     <div class="row"><span></span><button class="btn" id="continue-button" data-action="confirmIdentifiers">Confirm identifiers →</button></div>`;
+      }
+
+      function optionButtonsHtml(
+        field,
+        options,
+        selected,
+        badValue = "",
+        labels = {},
+      ) {
+        return `<div class="opts">${options
+          .map((option) => {
+            const text = labels[option]
+              ? `${option} — ${labels[option]}`
+              : option;
+            return `<button type="button" class="opt ${option === selected ? "on" : ""} ${option === badValue ? "bad" : ""}" data-action="setQc" data-field="${field}" data-value="${option}">${option === "Overheating" ? "🔥 " : ""}${text}</button>`;
+          })
+          .join("")}</div>`;
+      }
+
+      function reasonOptionsHtml(selected) {
+        return ['<option value="">Select a reason…</option>']
+          .concat(
+            QC_FAIL_REASONS.map(
+              (reason) =>
+                `<option ${reason === selected ? "selected" : ""}>${reason}</option>`,
+            ),
+          )
+          .join("");
+      }
+
+      function phonecheckStepHtml(device) {
+        const failed = device.qcPhonecheck === "Fail";
+        return `
+    <h2>PhoneCheck</h2>
+    <p class="mut">Run PhoneCheck on the device, then enter its result.</p>
+    <p><b>${escapeHtml(device.brand)} ${escapeHtml(device.model)}</b> · ${escapeHtml(device.storage)} · <span class="mut">${escapeHtml(device.imei)}</span></p>
+    <label>PhoneCheck result</label>
+    ${optionButtonsHtml("qcPhonecheck", QC_PHONECHECK_OPTIONS, device.qcPhonecheck, "Fail")}
+    ${
+      failed
+        ? `<label>Which test failed? <span class="mut" style="font-weight:400">(optional)</span></label>
+    <textarea id="pc-note" placeholder="e.g. Touch screen, Face ID">${escapeHtml(device.pcNote)}</textarea>`
+        : ""
+    }
+    <div class="row">
+      <button class="btn sec" data-action="goToStep" data-step="1">← Edit identifiers</button>
+      <span style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn dng" data-action="failPhonecheck" ${failed ? "" : "disabled"}>✗ PhoneCheck Failed</button>
+        <button class="btn ok" data-action="passPhonecheck" ${device.qcPhonecheck === "Pass" ? "" : "disabled"}>✓ PhoneCheck Passed — continue</button>
+      </span>
+    </div>`;
+      }
+
+      function physicalQcStepHtml(device) {
+        return `
+    <h2>Physical QC</h2>
+    <p class="mut">Check the device by hand: battery temperature and cosmetic condition.</p>
+    <p><b>${escapeHtml(device.brand)} ${escapeHtml(device.model)}</b> · ${escapeHtml(device.storage)} · <span class="mut">${escapeHtml(device.imei)}</span></p>
+    <label>Battery — does the device feel hot?</label>
+    ${optionButtonsHtml("qcBattery", QC_BATTERY_OPTIONS, device.qcBattery, "Overheating")}
+    <label>Cosmetic grade</label>
+    ${optionButtonsHtml("qcGrade", QC_GRADES, device.qcGrade, "", QC_GRADE_LABELS)}
+    <label>Failure reason <span class="mut" style="font-weight:400">(only if the device fails)</span></label>
+    <select id="qc-reason" style="width:100%">${reasonOptionsHtml(device.qcReason)}</select>
+    <label>Physical QC notes <span class="mut" style="font-weight:400">(required if the reason is “Other”)</span></label>
+    <textarea id="qc-note" placeholder="Optional details, e.g. where the damage is">${escapeHtml(device.qcNote)}</textarea>
+    <div id="qc-message"></div>
+    <div class="row">
+      <button class="btn sec" data-action="goToStep" data-step="2">← Back to PhoneCheck</button>
+      <span style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn dng" id="qc-fail" data-action="failQc" disabled>✗ Physical QC Failed</button>
+        <button class="btn ok" id="qc-pass" data-action="passQc" disabled>✓ Physical QC Passed — continue</button>
+      </span>
+    </div>`;
+      }
+
+      // Updates the QC step's buttons without re-rendering, so typing is not interrupted.
+      function updateQcForm() {
+        const device = findOpenDevice();
+        device.qcNote = $("qc-note").value;
+        device.qcReason = $("qc-reason").value;
+        $("qc-pass").disabled = !canPassQc(device);
+        $("qc-fail").disabled = !canFailQc(device);
+        $("qc-message").innerHTML =
+          device.qcBattery === "Overheating"
+            ? `<div class="msg e">A device with an overheating battery cannot pass Physical QC. Choose the failure reason above and press “Physical QC Failed”.</div>`
+            : "";
+        persist();
       }
 
       function wipeStepHtml(device) {
@@ -638,8 +1238,8 @@
     <p class="mut">Do this outside this app. When the wipe has finished successfully, continue.</p>
     <div class="big">${escapeHtml(device.imei)}</div>
     <div class="row">
-      <button class="btn sec" data-action="goToStep" data-step="1">← Edit identifiers</button>
-      <button class="btn" data-action="goToStep" data-step="3">Wipe finished →</button>
+      <button class="btn sec" data-action="goToStep" data-step="3">← Back to Physical QC</button>
+      <button class="btn" data-action="goToStep" data-step="5">Wipe finished →</button>
     </div>`;
       }
 
@@ -648,8 +1248,8 @@
     <h2>Turn the device OFF</h2>
     <p class="mut">Hold the side button and power the iPhone completely off.</p>
     <div class="row">
-      <button class="btn sec" data-action="goToStep" data-step="2">← Back</button>
-      <button class="btn" data-action="goToStep" data-step="4">Device is off →</button>
+      <button class="btn sec" data-action="goToStep" data-step="4">← Back</button>
+      <button class="btn" data-action="goToStep" data-step="6">Device is off →</button>
     </div>`;
       }
 
@@ -668,7 +1268,7 @@
     <label>Serial entered</label><div class="big">${escapeHtml(device.serial)}</div>
     ${checkboxes}
     <div class="row">
-      <button class="btn sec" data-action="goToStep" data-step="3">← Back</button>
+      <button class="btn sec" data-action="goToStep" data-step="5">← Back</button>
       <button class="btn ok" data-action="completeDevice" ${isFullyVerified(device) ? "" : "disabled"}>Complete Device ✓</button>
     </div>`;
       }
@@ -690,7 +1290,9 @@
         const imeiValid = device.imei.length === IMEI_LENGTH;
         const serialValid = hasText(device.serial);
         const detailsValid =
-          hasText(device.brand) && hasText(device.model) && hasText(device.storage);
+          hasText(device.brand) &&
+          hasText(device.model) &&
+          hasText(device.storage);
         const duplicate = imeiValid ? findDuplicate(device) : null;
 
         if (device.imei.length === 0) {
@@ -710,7 +1312,7 @@
 
         $("duplicate-warning").innerHTML = duplicate
           ? `
-    <div class="msg w"><b>⚠ Duplicate IMEI!</b> Already recorded as ${duplicate.id} (${duplicate.status}).
+    <div class="msg w"><b>⚠ Duplicate IMEI!</b> Already recorded on ${duplicate.date} (${duplicate.status}).
       <label class="chk" style="font-size:16px;margin-top:8px">
         <input type="checkbox" id="duplicate-ok" style="width:22px;height:22px" ${ui.duplicateAcknowledged ? "checked" : ""}>
         This is intentional (re-processing)
@@ -755,14 +1357,70 @@
           device.brand = device.brand.trim();
           device.model = device.model.trim();
           device.storage = device.storage.trim();
+          device.model = canonicalModel(device.model);
           device.step = 2;
           persist();
           render();
         },
+        setQc(button) {
+          const device = findOpenDevice();
+          const { field, value } = button.dataset;
+          if (!["qcPhonecheck", "qcBattery", "qcGrade"].includes(field)) return;
+          device[field] = value;
+          // Pre-fill the failure reason when it is obvious.
+          if (
+            field === "qcBattery" &&
+            value === "Overheating" &&
+            !device.qcReason
+          )
+            device.qcReason = "Overheating battery";
+          persist();
+          renderDeviceScreen();
+        },
+        passPhonecheck() {
+          const device = findOpenDevice();
+          if (device.qcPhonecheck !== "Pass") return;
+          device.pcNote = "";
+          device.step = 3;
+          persist();
+          showDevice();
+        },
+        // A PhoneCheck failure ends the device here; Physical QC is never reached.
+        failPhonecheck() {
+          const device = findOpenDevice();
+          if (device.qcPhonecheck !== "Fail") return;
+          const noteBox = $("pc-note");
+          device.pcNote = noteBox ? noteBox.value.trim() : "";
+          device.qcResult = "";
+          device.qcGrade = "";
+          device.qcBattery = "";
+          device.qcReason = "";
+          device.qcNote = "";
+          finishDevice(device, STATUS.QC_FAILED);
+        },
+        passQc() {
+          const device = findOpenDevice();
+          if (!canPassQc(device)) return;
+          device.qcNote = device.qcNote.trim();
+          device.qcReason = "";
+          device.qcResult = "Pass";
+          device.step = 4;
+          persist();
+          showDevice();
+        },
+        failQc() {
+          const device = findOpenDevice();
+          device.qcNote = device.qcNote.trim();
+          if (!canFailQc(device)) return;
+          device.qcResult = "Fail";
+          finishDevice(device, STATUS.QC_FAILED);
+        },
         goToStep(button) {
           const device = findOpenDevice();
           device.step = Number(button.dataset.step);
-          if (device.step < 4) device.chk = {};
+          if (device.step < 6) device.chk = {};
+          // Going back to Physical QC (or earlier) means it has to be passed again.
+          if (device.step <= 3) device.qcResult = "";
           persist();
           showDevice();
         },
@@ -774,13 +1432,17 @@
         },
         completeDevice() {
           const device = findOpenDevice();
-          if (!isIdentified(device) || !isFullyVerified(device)) return;
+          if (
+            !isIdentified(device) ||
+            device.qcResult !== "Pass" ||
+            !isFullyVerified(device)
+          )
+            return;
           finishDevice(device, STATUS.COMPLETED);
         },
         openExceptionModal() {
-          const device = findOpenDevice();
           openModal(`
-      <h2>Mark ${device.id} as Exception</h2>
+      <h2>Mark this device as an Exception</h2>
       <p class="mut">Describe the problem briefly (e.g. "stuck on setup screen"). This device will NOT count as completed.</p>
       <textarea id="exception-note" placeholder="What went wrong?"></textarea>
       <div class="row">
@@ -797,37 +1459,45 @@
 
         /* ----- Edit and delete ----- */
         openEditModal(button) {
-          openEditModal(button.dataset.id);
+          openEditModal(deviceAtIndex(button.dataset.index));
         },
         saveEdit() {
           if ($("save-edit").disabled) return;
-          const device = findDevice(ui.editingId);
+          const device = ui.editing;
           device.imei = $("edit-imei").value;
           device.serial = $("edit-serial").value.trim();
           device.brand = $("edit-brand").value.trim();
-          device.model = $("edit-model").value.trim();
+          device.model = canonicalModel($("edit-model").value);
           device.storage = $("edit-storage").value.trim();
           if (device.status === STATUS.EXCEPTION)
             device.note = $("edit-note").value.trim();
+          if (device.qcPhonecheck) {
+            device.qcPhonecheck = $("edit-phonecheck").value;
+            device.pcNote = $("edit-pcnote").value.trim();
+          }
+          if (device.qcResult) {
+            device.qcGrade = $("edit-grade").value;
+            device.qcBattery = $("edit-battery").value;
+            device.qcReason = $("edit-reason").value;
+            device.qcNote = $("edit-qcnote").value.trim();
+          }
           persist();
           closeModal();
-          showToast(`${device.id} updated`);
+          showToast(`${deviceLabel(device)} updated`);
           render();
         },
         openDeleteModal(button) {
-          openDeleteModal(button.dataset.id);
+          openDeleteModal(deviceAtIndex(button.dataset.index));
         },
         openDeleteFinalModal() {
           openDeleteFinalModal();
         },
         deleteDevice() {
-          const device = findDevice(ui.deletingId);
-          state.records = state.records.filter(
-            (record) => record.id !== ui.deletingId,
-          );
+          const device = ui.deleting;
+          state.records = state.records.filter((record) => record !== device);
           persist();
           closeModal();
-          showToast(`${device.id} deleted`);
+          showToast(`${deviceLabel(device)} deleted`);
           render();
         },
 
@@ -840,24 +1510,17 @@
           ui.changingName = false;
           render();
         },
+        // Saving a different name renames the operator on every existing record. Nothing is deleted.
         startSession() {
           const name = $("name-input").value.trim();
           if (!name) return;
-          const isDifferentName = state.operator && name !== state.operator;
-          const hasOldData = state.records.some(
-            (device) => device.operator === state.operator,
-          );
-          if (isDifferentName && hasOldData) return openNameChangeModal(name);
-          switchOperator(name);
-        },
-        confirmNameChange() {
           const oldName = state.operator;
-          state.records = state.records.filter(
-            (device) => device.operator !== oldName,
-          );
-          removeBlankDevices();
-          closeModal();
-          switchOperator(ui.pendingName);
+          if (oldName && name !== oldName) {
+            state.records.forEach((device) => {
+              if (device.operator === oldName) device.operator = name;
+            });
+          }
+          switchOperator(name);
         },
 
         /* ----- Exports and maintenance ----- */
@@ -870,21 +1533,44 @@
             ) !== "DELETE"
           )
             return;
-          state = { operator: state.operator, nextNum: 1, records: [] };
+          state = {
+            operator: state.operator,
+            version: STATE_VERSION,
+            records: [],
+          };
           persist();
           render();
         },
       };
 
-      function openEditModal(deviceId) {
-        ui.editingId = deviceId;
-        const device = findDevice(deviceId);
+      function openEditModal(device) {
+        ui.editing = device;
         const noteField =
           device.status === STATUS.EXCEPTION
             ? `<label>Exception note</label><textarea id="edit-note">${escapeHtml(device.note)}</textarea>`
             : "";
+        const selectOptions = (options, selected) =>
+          ['<option value="">—</option>']
+            .concat(
+              options.map(
+                (option) =>
+                  `<option ${option === selected ? "selected" : ""}>${option}</option>`,
+              ),
+            )
+            .join("");
+        const pcFields = device.qcPhonecheck
+          ? `<label>PhoneCheck result</label><select id="edit-phonecheck">${selectOptions(QC_PHONECHECK_OPTIONS, device.qcPhonecheck)}</select>
+    <label>PhoneCheck notes</label><textarea id="edit-pcnote">${escapeHtml(device.pcNote)}</textarea>`
+          : "";
+        const qcFields = device.qcResult
+          ? `<label>Physical QC result</label><div><span class="tag ${device.qcResult === "Pass" ? "Completed" : "QC-Failed"}">${device.qcResult}</span></div>
+    <label>Cosmetic grade</label><select id="edit-grade">${selectOptions(QC_GRADES, device.qcGrade)}</select>
+    <label>Battery check</label><select id="edit-battery">${selectOptions(QC_BATTERY_OPTIONS, device.qcBattery)}</select>
+    <label>Physical QC failure reason</label><select id="edit-reason">${selectOptions(QC_FAIL_REASONS, device.qcReason)}</select>
+    <label>Physical QC notes</label><textarea id="edit-qcnote">${escapeHtml(device.qcNote)}</textarea>`
+          : "";
         openModal(`
-    <h2>Edit ${device.id}</h2>
+    <h2>Edit device</h2>
     <label>IMEI (15 digits)</label>
     <input type="text" id="edit-imei" inputmode="numeric" maxlength="${IMEI_LENGTH}" value="${escapeHtml(device.imei)}" autocomplete="off">
     <div id="edit-imei-message"></div>
@@ -893,11 +1579,14 @@
     <label>Brand</label>
     <input type="text" class="txt" id="edit-brand" value="${escapeHtml(device.brand)}" autocomplete="off">
     <label>Model</label>
-    <input type="text" class="txt" id="edit-model" value="${escapeHtml(device.model)}" autocomplete="off">
+    <input type="text" class="txt" id="edit-model" list="model-options" value="${escapeHtml(device.model)}" autocomplete="off">
+    ${modelDatalistHtml()}
     <label>Storage</label>
     <input type="text" class="txt" id="edit-storage" list="storage-options" value="${escapeHtml(device.storage)}" autocomplete="off">
     ${storageDatalistHtml()}
     ${noteField}
+    ${pcFields}
+    ${qcFields}
     <div class="row">
       <button class="btn sec" data-action="closeModal">Cancel</button>
       <button class="btn" id="save-edit" data-action="saveEdit">Save changes</button>
@@ -906,7 +1595,7 @@
       }
 
       function updateEditForm() {
-        const device = findDevice(ui.editingId);
+        const device = ui.editing;
         const imeiInput = $("edit-imei");
         imeiInput.value = imeiInput.value.replace(/\D/g, "");
         const imei = imeiInput.value;
@@ -916,9 +1605,16 @@
         const noteValid =
           device.status !== STATUS.EXCEPTION ||
           $("edit-note").value.trim() !== "";
+        const qcNoteValid =
+          device.qcResult !== "Fail" ||
+          canFailQc({
+            qcReason: $("edit-reason").value,
+            qcNote: $("edit-qcnote").value,
+          }) ||
+          (!$("edit-reason").value && $("edit-qcnote").value.trim() !== "");
         const duplicate = imeiValid
           ? state.records.find(
-              (other) => other.id !== device.id && other.imei === imei,
+              (other) => other !== device && other.imei === imei,
             )
           : null;
 
@@ -927,19 +1623,23 @@
             `<div class="msg e">IMEI must be exactly ${IMEI_LENGTH} digits — you have entered ${imei.length}.</div>`;
         } else if (duplicate) {
           $("edit-imei-message").innerHTML =
-            `<div class="msg w">⚠ This IMEI is already recorded as ${duplicate.id}.</div>`;
+            `<div class="msg w">⚠ This IMEI is already recorded on ${duplicate.date} (${duplicate.status}).</div>`;
         } else {
           $("edit-imei-message").innerHTML = "";
         }
-        $("save-edit").disabled = !(imeiValid && serialValid && noteValid);
+        $("save-edit").disabled = !(
+          imeiValid &&
+          serialValid &&
+          noteValid &&
+          qcNoteValid
+        );
       }
 
       // Deleting takes two confirmations: this first one, then a final "are you sure".
-      function openDeleteModal(deviceId) {
-        ui.deletingId = deviceId;
-        const device = findDevice(deviceId);
+      function openDeleteModal(device) {
+        ui.deleting = device;
         openModal(`
-    <h2>Delete ${device.id}?</h2>
+    <h2>Delete this device?</h2>
     <p>IMEI: <b>${escapeHtml(device.imei) || "—"}</b><br>Serial: <b>${escapeHtml(device.serial) || "—"}</b><br>Status: <b>${device.status}</b></p>
     <div class="row">
       <button class="btn sec" data-action="closeModal">Cancel</button>
@@ -948,10 +1648,10 @@
       }
 
       function openDeleteFinalModal() {
-        const device = findDevice(ui.deletingId);
+        const device = ui.deleting;
         openModal(`
     <h2>Are you sure?</h2>
-    <p><b>${device.id}</b> will be permanently deleted. This cannot be undone.</p>
+    <p>The device with IMEI <b>${escapeHtml(device.imei) || "—"}</b> will be permanently deleted. This cannot be undone.</p>
     <div class="row">
       <button class="btn sec" data-action="closeModal">No, keep it</button>
       <button class="btn dng" data-action="deleteDevice">Yes, delete permanently</button>
@@ -964,25 +1664,6 @@
         ui.changingName = false;
         persist();
         render();
-      }
-
-      function openNameChangeModal(newName) {
-        ui.pendingName = newName;
-        const count = state.records.filter(
-          (device) => device.operator === state.operator,
-        ).length;
-        openModal(`
-    <h2>Change name to “${escapeHtml(newName)}”?</h2>
-    <p>This will <b>permanently delete all ${count} device record${count === 1 ? "" : "s"}</b>
-       saved under “${escapeHtml(state.operator)}” on this computer.</p>
-    <p class="mut">Export your CSV/PDF first if you still need them.</p>
-    <label class="chk" style="font-size:18px">
-      <input type="checkbox" id="confirm-delete"> I understand this data will be deleted
-    </label>
-    <div class="row">
-      <button class="btn sec" data-action="closeModal">Cancel</button>
-      <button class="btn dng" id="confirm-switch" data-action="confirmNameChange" disabled>Delete data &amp; switch</button>
-    </div>`);
       }
 
       /* ============================================================
@@ -999,7 +1680,6 @@
 
       function exportCsv() {
         const header = [
-          "Device ID",
           "IMEI",
           "Serial Number",
           "Brand",
@@ -1007,29 +1687,41 @@
           "Storage",
           "Operator",
           "Date",
-          "Time Completed",
           "Status",
+          "PhoneCheck Result",
+          "PhoneCheck Note",
+          "Battery Check",
+          "Cosmetic Grade",
+          "Physical QC Result",
+          "Physical QC Fail Reason",
+          "Physical QC Note",
           "Exception Note",
         ];
+        // Dates are written as text so Excel shows them as-is (no ########).
         const rows = devicesForExport().map((device) => [
-          csvCell(device.id),
           csvTextCell(device.imei),
           csvTextCell(device.serial),
           csvCell(device.brand),
           csvCell(device.model),
           csvCell(device.storage),
           csvCell(device.operator),
-          csvCell(device.date),
-          csvCell(device.time),
+          csvTextCell(device.date),
           csvCell(device.status),
+          csvCell(device.qcPhonecheck),
+          csvCell(device.pcNote),
+          csvCell(device.qcBattery),
+          csvCell(device.qcGrade),
+          csvCell(device.qcResult),
+          csvCell(device.qcReason),
+          csvCell(device.qcNote),
           csvCell(device.note),
         ]);
         const lines = [header.map(csvCell), ...rows].map((cells) =>
           cells.join(","),
         );
 
-        const blob = new Blob(["\ufeff" + lines.join("\r\n")], {
-          type: "text/csv",
+        const blob = new Blob(["\ufeff" + "sep=,\r\n" + lines.join("\r\n")], {
+          type: "text/csv;charset=utf-8",
         });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
@@ -1037,56 +1729,460 @@
         link.click();
       }
 
-      // Fills the hidden print-only report, then opens the print dialog ("Save as PDF").
+      /* ---------- PDF overview report ---------- */
+      const PDF_COLORS = {
+        ink: [29, 29, 31],
+        mut: [110, 110, 115],
+        line: [229, 229, 234],
+        card: [240, 240, 244],
+        blue: [0, 113, 227],
+        green: [36, 138, 61],
+        purple: [122, 47, 181],
+        red: [215, 0, 21],
+        amber: [200, 130, 0],
+      };
+
+      function percent(part, whole) {
+        return whole ? Math.round((part / whole) * 100) : 0;
+      }
+
+      // Which part of QC a failed device failed at.
+      function failedAt(device) {
+        return device.qcPhonecheck === "Fail" ? "PhoneCheck" : "Physical QC";
+      }
+
+      function failureDetail(device) {
+        if (device.qcPhonecheck === "Fail") return (device.pcNote || "").trim();
+        return [device.qcReason, (device.qcNote || "").trim()]
+          .filter(Boolean)
+          .join(" - ");
+      }
+
       function exportPdf() {
         const devices = devicesForExport();
         // If the PDF library could not load (e.g. offline), fall back to the print dialog.
         if (!window.jspdf || !window.jspdf.jsPDF) return printReport(devices);
+        const doc = buildReportPdf(devices);
+        doc.save(
+          `device-report-${state.operator.replace(/\W+/g, "-")}-${ui.date}.pdf`,
+        );
+      }
 
+      // Builds a multi-section overview: summary, QC breakdown, failures, models and device lists.
+      // (Plain hyphens are used instead of fancy dashes: the built-in PDF font can't draw every symbol.)
+      function buildReportPdf(devices) {
+        const C = PDF_COLORS;
         const doc = new window.jspdf.jsPDF({
-          orientation: "landscape",
+          orientation: "portrait",
           unit: "pt",
           format: "a4",
         });
-        doc.setFontSize(16);
-        doc.text("Faro Device Wipe Tracker - Daily Report", 40, 42);
-        doc.setFontSize(10);
-        doc.text(`Date: ${ui.date}    Operator: ${state.operator}`, 40, 62);
-        doc.text(
-          `Completed: ${countByStatus(devices, STATUS.COMPLETED)}    Exceptions: ${countByStatus(devices, STATUS.EXCEPTION)}    In progress: ${countByStatus(devices, STATUS.IN_PROGRESS)}`,
-          40,
-          77,
+        const pageW = doc.internal.pageSize.getWidth();
+        const pageH = doc.internal.pageSize.getHeight();
+        const M = 40;
+        const contentW = pageW - M * 2;
+        let y = 0;
+
+        const completed = devices.filter((d) => d.status === STATUS.COMPLETED);
+        const failed = devices.filter((d) => d.status === STATUS.QC_FAILED);
+        const exceptions = devices.filter((d) => d.status === STATUS.EXCEPTION);
+        const inProgress = devices.filter(
+          (d) => d.status === STATUS.IN_PROGRESS,
         );
-        doc.autoTable({
-          startY: 92,
-          head: [
-            ["Device ID", "IMEI", "Serial", "Brand", "Model", "Storage", "Operator", "Time", "Status", "Exception note"],
-          ],
-          body: devices.map((device) => [
-            device.id,
-            device.imei,
-            device.serial,
-            device.brand || "",
-            device.model || "",
-            device.storage || "",
-            device.operator,
-            device.time,
-            device.status,
-            device.note,
-          ]),
-          styles: { fontSize: 8, cellPadding: 4 },
-          headStyles: { fillColor: [0, 113, 227] },
+        const finished = completed.length + failed.length + exceptions.length;
+        const count = (items, test) => items.filter(test).length;
+
+        function ensureSpace(height) {
+          if (y + height > pageH - 50) {
+            doc.addPage();
+            y = M;
+          }
+        }
+
+        function heading(text) {
+          ensureSpace(90);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(13);
+          doc.setTextColor(...C.ink);
+          doc.text(text, M, y);
+          doc.setDrawColor(...C.line);
+          doc.line(M, y + 6, M + contentW, y + 6);
+          y += 24;
+        }
+
+        function caption(text) {
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(9);
+          doc.setTextColor(...C.mut);
+          doc.text(text, M, y);
+          y += 14;
+        }
+
+        function table(head, body, options = {}) {
+          if (!body.length) {
+            caption("None.");
+            y += 8;
+            return;
+          }
+          doc.autoTable({
+            startY: y,
+            head: [head],
+            body,
+            margin: { left: M, right: M, top: M, bottom: 50 },
+            styles: { fontSize: 8, cellPadding: 4, textColor: C.ink },
+            headStyles: { fillColor: C.blue, textColor: 255 },
+            alternateRowStyles: { fillColor: [247, 247, 250] },
+            ...options,
+          });
+          y = doc.lastAutoTable.finalY + 22;
+        }
+
+        // A small labelled bar chart. Returns the height it used.
+        function miniBars(x, top, width, title, rows) {
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(10);
+          doc.setTextColor(...C.ink);
+          doc.text(title, x, top);
+          const total = rows.reduce((sum, row) => sum + row.value, 0);
+          const labelW = 80;
+          const barMax = width - labelW - 62;
+          let rowY = top + 14;
+          rows.forEach((row) => {
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(9);
+            doc.setTextColor(...C.mut);
+            doc.text(row.label, x, rowY + 8);
+            doc.setFillColor(...C.card);
+            doc.roundedRect(x + labelW, rowY, barMax, 10, 3, 3, "F");
+            const barW = total ? (row.value / total) * barMax : 0;
+            if (barW > 0) {
+              doc.setFillColor(...row.color);
+              doc.rect(x + labelW, rowY, Math.max(barW, 2), 10, "F");
+            }
+            doc.setTextColor(...C.ink);
+            doc.text(
+              `${row.value} (${percent(row.value, total)}%)`,
+              x + labelW + barMax + 6,
+              rowY + 8,
+            );
+            rowY += 17;
+          });
+          return rowY - top;
+        }
+
+        function addFooters() {
+          const pages = doc.getNumberOfPages();
+          for (let page = 1; page <= pages; page++) {
+            doc.setPage(page);
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(8);
+            doc.setTextColor(...C.mut);
+            doc.text(
+              `Faro Device Wipe Tracker  |  ${state.operator}  |  ${ui.date}`,
+              M,
+              pageH - 24,
+            );
+            doc.text(`Page ${page} of ${pages}`, pageW - M, pageH - 24, {
+              align: "right",
+            });
+          }
+        }
+
+        /* ----- Title band ----- */
+        doc.setFillColor(...C.blue);
+        doc.rect(0, 0, pageW, 78, "F");
+        doc.setTextColor(255, 255, 255);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(20);
+        doc.text("Device Wipe Report", M, 38);
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+        doc.text(
+          `Faro Device Wipe Tracker  |  Date: ${ui.date}  |  Operator: ${state.operator}`,
+          M,
+          58,
+        );
+        y = 108;
+
+        if (!devices.length) {
+          caption("No devices were recorded for this day.");
+          addFooters();
+          return doc;
+        }
+
+        /* ----- Summary ----- */
+        heading("Summary");
+        const cards = [
+          ["Total devices", devices.length, C.ink],
+          ["Completed", completed.length, C.green],
+          ["QC Failed", failed.length, C.purple],
+          ["Exceptions", exceptions.length, C.red],
+          ["In progress", inProgress.length, C.amber],
+        ];
+        const gap = 10;
+        const cardW = (contentW - gap * 4) / 5;
+        const cardH = 56;
+        cards.forEach(([label, value, rgb], index) => {
+          const x = M + index * (cardW + gap);
+          doc.setFillColor(...C.card);
+          doc.roundedRect(x, y, cardW, cardH, 8, 8, "F");
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(22);
+          doc.setTextColor(...rgb);
+          doc.text(String(value), x + 12, y + 28);
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(8.5);
+          doc.setTextColor(...C.mut);
+          doc.text(label, x + 12, y + 44);
         });
-        doc.save(`devices-${state.operator.replace(/\W+/g, "-")}-${ui.date}.pdf`);
+        y += cardH + 16;
+
+        // One bar showing how the day split between outcomes.
+        let barX = M;
+        [
+          [completed.length, C.green],
+          [failed.length, C.purple],
+          [exceptions.length, C.red],
+          [inProgress.length, C.amber],
+        ].forEach(([amount, rgb]) => {
+          const width = (amount / devices.length) * contentW;
+          if (width > 0) {
+            doc.setFillColor(...rgb);
+            doc.rect(barX, y, width, 12, "F");
+            barX += width;
+          }
+        });
+        y += 28;
+        caption(
+          finished
+            ? `Completion rate: ${percent(completed.length, finished)}% (${completed.length} of ${finished} finished devices).  QC fail rate: ${percent(failed.length, finished)}%.  Exception rate: ${percent(exceptions.length, finished)}%.`
+            : "No devices have finished yet.",
+        );
+        y += 12;
+
+        /* ----- QC overview ----- */
+        heading("QC overview");
+        caption(
+          "Devices that fail PhoneCheck stop there and do not go on to Physical QC.",
+        );
+        y += 4;
+        const phonecheckDevices = devices.filter((d) => d.qcPhonecheck);
+        const physicalDevices = devices.filter((d) => d.qcResult);
+        const batteryDevices = devices.filter((d) => d.qcBattery);
+        const gradedDevices = devices.filter((d) => d.qcGrade);
+        const colW = (contentW - 30) / 2;
+        const colX = [M, M + colW + 30];
+
+        ensureSpace(90);
+        let heightLeft = miniBars(colX[0], y, colW, "PhoneCheck", [
+          {
+            label: "Pass",
+            value: count(phonecheckDevices, (d) => d.qcPhonecheck === "Pass"),
+            color: C.green,
+          },
+          {
+            label: "Fail",
+            value: count(phonecheckDevices, (d) => d.qcPhonecheck === "Fail"),
+            color: C.purple,
+          },
+        ]);
+        let heightRight = miniBars(colX[1], y, colW, "Physical QC", [
+          {
+            label: "Pass",
+            value: count(physicalDevices, (d) => d.qcResult === "Pass"),
+            color: C.green,
+          },
+          {
+            label: "Fail",
+            value: count(physicalDevices, (d) => d.qcResult === "Fail"),
+            color: C.purple,
+          },
+        ]);
+        y += Math.max(heightLeft, heightRight) + 14;
+
+        ensureSpace(100);
+        heightLeft = miniBars(colX[0], y, colW, "Battery check", [
+          {
+            label: "Normal",
+            value: count(batteryDevices, (d) => d.qcBattery === "Normal"),
+            color: C.green,
+          },
+          {
+            label: "Overheating",
+            value: count(batteryDevices, (d) => d.qcBattery === "Overheating"),
+            color: C.red,
+          },
+        ]);
+        heightRight = miniBars(colX[1], y, colW, "Cosmetic grade", [
+          {
+            label: "A - Excellent",
+            value: count(gradedDevices, (d) => d.qcGrade === "A"),
+            color: C.green,
+          },
+          {
+            label: "B - Good",
+            value: count(gradedDevices, (d) => d.qcGrade === "B"),
+            color: C.blue,
+          },
+          {
+            label: "C - Poor",
+            value: count(gradedDevices, (d) => d.qcGrade === "C"),
+            color: C.amber,
+          },
+        ]);
+        y += Math.max(heightLeft, heightRight) + 14;
+
+        /* ----- Failures by reason ----- */
+        heading("QC failures by reason");
+        const reasons = new Map();
+        failed.forEach((device) => {
+          const stage = failedAt(device);
+          const reason =
+            stage === "PhoneCheck"
+              ? "Test failed"
+              : device.qcReason || "No reason recorded";
+          const key = `${stage}|${reason}`;
+          if (!reasons.has(key)) reasons.set(key, { stage, reason, total: 0 });
+          reasons.get(key).total += 1;
+        });
+        table(
+          ["Failed at", "Reason", "Devices"],
+          [...reasons.values()]
+            .sort((a, b) => b.total - a.total)
+            .map((r) => [r.stage, r.reason, r.total]),
+        );
+
+        /* ----- Models ----- */
+        heading("Devices by model");
+        const models = new Map();
+        devices.forEach((device) => {
+          const model = device.model || "-";
+          const storageSize = device.storage || "-";
+          const key = `${model}|${storageSize}`;
+          if (!models.has(key))
+            models.set(key, {
+              model,
+              storageSize,
+              total: 0,
+              completed: 0,
+              failed: 0,
+              exceptions: 0,
+              inProgress: 0,
+            });
+          const group = models.get(key);
+          group.total += 1;
+          if (device.status === STATUS.COMPLETED) group.completed += 1;
+          else if (device.status === STATUS.QC_FAILED) group.failed += 1;
+          else if (device.status === STATUS.EXCEPTION) group.exceptions += 1;
+          else group.inProgress += 1;
+        });
+        table(
+          [
+            "Model",
+            "Storage",
+            "Total",
+            "Completed",
+            "QC Failed",
+            "Exceptions",
+            "In progress",
+          ],
+          [...models.values()]
+            .sort((a, b) => b.total - a.total || a.model.localeCompare(b.model))
+            .map((g) => [
+              g.model,
+              g.storageSize,
+              g.total,
+              g.completed,
+              g.failed,
+              g.exceptions,
+              g.inProgress,
+            ]),
+        );
+
+        /* ----- Device lists ----- */
+        const idColumns = {
+          0: { cellWidth: "wrap" },
+          1: { cellWidth: "wrap" },
+        };
+
+        heading("Completed devices");
+        table(
+          [
+            "IMEI",
+            "Serial",
+            "Model",
+            "Storage",
+            "PhoneCheck",
+            "Grade",
+            "Battery",
+          ],
+          completed.map((d) => [
+            d.imei || "-",
+            d.serial || "-",
+            d.model || "-",
+            d.storage || "-",
+            d.qcPhonecheck || "-",
+            d.qcGrade || "-",
+            d.qcBattery || "-",
+          ]),
+          { columnStyles: idColumns },
+        );
+
+        heading("QC failed devices");
+        table(
+          ["IMEI", "Serial", "Model", "Storage", "Failed at", "Details"],
+          failed.map((d) => [
+            d.imei || "-",
+            d.serial || "-",
+            d.model || "-",
+            d.storage || "-",
+            failedAt(d),
+            failureDetail(d) || "-",
+          ]),
+          { columnStyles: idColumns },
+        );
+
+        heading("Exceptions");
+        table(
+          ["IMEI", "Serial", "Model", "Storage", "Note"],
+          exceptions.map((d) => [
+            d.imei || "-",
+            d.serial || "-",
+            d.model || "-",
+            d.storage || "-",
+            d.note || "-",
+          ]),
+          { columnStyles: idColumns },
+        );
+
+        if (inProgress.length) {
+          heading("Still in progress");
+          table(
+            ["IMEI", "Serial", "Model", "Current step"],
+            inProgress.map((d) => [
+              d.imei || "-",
+              d.serial || "-",
+              d.model || "-",
+              STEP_LABELS[d.step - 1] || "-",
+            ]),
+            { columnStyles: idColumns },
+          );
+        }
+
+        addFooters();
+        return doc;
       }
 
+      // Fallback when the PDF library is unavailable: fills the hidden print-only report,
+      // then opens the print dialog ("Save as PDF").
       function printReport(devices) {
         const rows = devices
           .map(
             (device) => `
-    <tr><td>${device.id}</td><td>${escapeHtml(device.imei)}</td><td>${escapeHtml(device.serial)}</td>
+    <tr><td>${escapeHtml(device.imei)}</td><td>${escapeHtml(device.serial)}</td>
         <td>${escapeHtml(device.brand)}</td><td>${escapeHtml(device.model)}</td><td>${escapeHtml(device.storage)}</td>
-        <td>${escapeHtml(device.operator)}</td><td>${device.time}</td><td>${device.status}</td><td>${escapeHtml(device.note)}</td></tr>`,
+        <td>${escapeHtml(device.qcPhonecheck)}</td><td>${escapeHtml(device.qcResult)}</td><td>${escapeHtml(device.qcGrade)}</td><td>${escapeHtml(device.qcBattery)}</td>
+        <td>${device.status}</td><td>${escapeHtml(noteText(device))}</td></tr>`,
           )
           .join("");
 
@@ -1094,10 +2190,11 @@
     <h1 style="font-size:24px">Faro Device Wipe Tracker — Daily Report</h1>
     <p>Date: <b>${ui.date}</b><br>Operator: <b>${escapeHtml(state.operator)}</b><br>
        Total completed: <b>${countByStatus(devices, STATUS.COMPLETED)}</b> ·
+       QC failed: <b>${countByStatus(devices, STATUS.QC_FAILED)}</b> ·
        Total exceptions: <b>${countByStatus(devices, STATUS.EXCEPTION)}</b> ·
        In progress: ${countByStatus(devices, STATUS.IN_PROGRESS)}</p>
     <table>
-      <tr><th>Device ID</th><th>IMEI</th><th>Serial</th><th>Brand</th><th>Model</th><th>Storage</th><th>Operator</th><th>Time</th><th>Status</th><th>Exception note</th></tr>
+      <tr><th>IMEI</th><th>Serial</th><th>Brand</th><th>Model</th><th>Storage</th><th>PhoneCheck</th><th>Physical QC</th><th>Grade</th><th>Battery</th><th>Status</th><th>Note</th></tr>
       ${rows}
     </table>`;
         window.print();
@@ -1130,12 +2227,21 @@
           updateIdentifyForm();
         } else if (id === "name-input") {
           $("start-button").disabled = !value.trim();
+        } else if (id === "search-input") {
+          ui.search = value;
+          $("device-rows").innerHTML = deviceRowsHtml();
+        } else if (id === "pc-note") {
+          findOpenDevice().pcNote = value;
+          persist();
+        } else if (id === "qc-note") {
+          updateQcForm();
         } else if (id === "exception-note") {
           $("save-exception").disabled = !value.trim();
         } else if (
           id === "edit-imei" ||
           id === "edit-serial" ||
-          id === "edit-note"
+          id === "edit-note" ||
+          id === "edit-qcnote"
         ) {
           updateEditForm();
         }
@@ -1143,11 +2249,13 @@
 
       document.addEventListener("change", (event) => {
         const { id, checked, dataset, value } = event.target;
-        if (id === "duplicate-ok") {
+        if (id === "qc-reason") {
+          updateQcForm();
+        } else if (id === "edit-reason") {
+          updateEditForm();
+        } else if (id === "duplicate-ok") {
           ui.duplicateAcknowledged = checked;
           updateIdentifyForm();
-        } else if (id === "confirm-delete") {
-          $("confirm-switch").disabled = !checked;
         } else if (dataset.filter === "date") {
           ui.date = value;
           render();
